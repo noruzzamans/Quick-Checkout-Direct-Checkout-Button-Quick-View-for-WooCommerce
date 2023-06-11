@@ -1,114 +1,46 @@
-=== Plugin Name ===
-Contributors: (this should be a list of wordpress.org userid's)
-Donate link: https://https://github.com/noruzzamanrubel
-Tags: comments, spam
-Requires at least: 3.0.1
-Tested up to: 3.4
-Stable tag: 4.3
+=== Quick Checkout for WooCommerce ===
+Contributors: noruzzaman
+Tags: checkout, quick, quick-checkout, direct-checkout
+Requires at least: 5.0
+Tested up to: 6.2
+Stable tag: 1.0.0
+Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
+Quick Checkout for WooCommerce is a streamlined and user-friendly plugin that simplifies the checkout process for your WooCommerce online store.
 
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
+Quick Checkout for WooCommerce is a powerful and efficient plugin designed to streamline the checkout process for online stores built on the WooCommerce platform. It offers a range of features and optimizations that enhance the user experience and maximize conversion rates.
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+With Quick Checkout, customers can complete their purchases swiftly and with minimal effort. The plugin simplifies the checkout form by eliminating unnecessary fields and steps, reducing the time and friction typically associated with the payment process. By removing barriers, it significantly improves the overall shopping experience and encourages customers to complete their transactions.
 
-A few notes about the sections above:
+One of the key advantages of Quick Checkout is its ability to support multiple payment gateways seamlessly. Whether it's credit cards, PayPal, Apple Pay, or any other popular payment method, customers can choose their preferred option without leaving the checkout page. This convenience ensures a wider range of payment options, catering to diverse customer preferences and increasing the likelihood of successful conversions.
 
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-*   "Tags" is a comma separated list of tags that apply to the plugin
-*   "Requires at least" is the lowest version that the plugin will work on
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
-stable.
+Furthermore, Quick Checkout optimizes the checkout process for mobile devices, recognizing the growing trend of mobile shopping. The plugin ensures that the checkout page is fully responsive and mobile-friendly, providing a smooth and intuitive experience across different screen sizes and devices. This feature is crucial in capturing the attention of mobile users and capitalizing on the increasing number of people shopping on their smartphones and tablets.
 
-    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
-if the `/trunk/readme.txt` file says that the stable tag is `4.3`, then it is `/tags/4.3/readme.txt` that'll be used
-for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
-is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
-your in-development version, without having that information incorrectly disclosed about the current stable version
-that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
+Another notable feature of Quick Checkout is its support for guest checkout. It allows customers to complete their purchases without creating an account or going through a lengthy registration process. This option is particularly appealing to first-time buyers or those seeking a quick and hassle-free checkout experience. However, Quick Checkout also provides an option for customers to create an account if they wish, allowing them to save their details for future purchases and enjoy personalized benefits.
 
-    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
-you put the stable version, in order to eliminate any doubt.
+The plugin's user-friendly interface and intuitive configuration options make it easy for store owners to customize the checkout process according to their specific requirements. It provides flexible settings to control the display and arrangement of fields, allowing store owners to collect the necessary information while keeping the checkout form concise and uncluttered.
+
+In summary, Quick Checkout for WooCommerce is a feature-rich plugin that simplifies the checkout process, reduces cart abandonment, and improves conversion rates. By optimizing the user experience, supporting various payment gateways, and catering to mobile shoppers, it empowers online store owners to provide a seamless and efficient checkout process, ultimately leading to increased sales and customer satisfaction.
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
+There is no prerequisites for installing **Quick checkout for woocommerce**. You can follow the steps below to complete the installation.
 
-e.g.
-
-1. Upload `qcfw-checkout.php` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
+= Automatic Installation =
+1.  Go to `Plugins > Add New` screen from your WordPress website dashboard.
+2.  Search for `Quick Checkout For WooCommerce`.
+3.  Install and activate the plugin, that's it!
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= Does the plugin come for free? =
 
-An answer to that question.
-
-= What about foo bar? =
-
-Answer to foo bar dilemma.
+Yes, it’s completely free.
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
-
 == Changelog ==
-
-= 1.0 =
-* A change since the previous version.
-* Another change.
-
-= 0.5 =
-* List versions from most recent at top to oldest at bottom.
-
-== Upgrade Notice ==
-
-= 1.0 =
-Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
-
-= 0.5 =
-This version fixes a security related bug.  Upgrade immediately.
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
-
-== A brief Markdown Example ==
-
-Ordered list:
-
-1. Some feature
-1. Another feature
-1. Something else about the plugin
-
-Unordered list:
-
-* something
-* something else
-* third thing
-
-Here's a link to [WordPress](http://wordpress.org/ "Your favorite software") and one to [Markdown's Syntax Documentation][markdown syntax].
-Titles are optional, naturally.
-
-[markdown syntax]: http://daringfireball.net/projects/markdown/syntax
-            "Markdown is what the parser uses to process much of the readme file"
-
-Markdown uses email style notation for blockquotes and I've been told:
-> Asterisks for *emphasis*. Double it up  for **strong**.
-
-`<?php code(); // goes in backticks ?>`
