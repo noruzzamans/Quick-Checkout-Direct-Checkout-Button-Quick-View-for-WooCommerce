@@ -125,7 +125,7 @@ class Qcfw_Checkout {
 		/**
 		 * The class responsible for defining checkout page
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-qcfw-checkout-frontend.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-qcfw-checkout-frontend.php';
 
 		$this->loader = new Qcfw_Checkout_Loader();
 
