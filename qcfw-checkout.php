@@ -36,6 +36,12 @@ if ( ! defined( 'WPINC' ) ) {
  * Rename this for your plugin and update it as you release new versions.
  */
 define( 'QCFW_CHECKOUT_VERSION', '1.0.0' );
+define( 'QCFW_CHECKOUT_PATH', plugin_dir_path( __FILE__ ) );
+define( 'QCFW_CHECKOUT_URL', plugin_dir_url( __FILE__ ) );
+define( 'QCFW_CHECKOUT_SLUG', 'qcfw-checkout' );
+define( 'QCFW_CHECKOUT_NAME', 'Quick Checkout for WooCommerce' );
+define( 'QCFW_CHECKOUT_FULL_NAME', 'Quick Checkout for WooCommerce' );
+define( 'QCFW_CHECKOUT_BASE_NAME', plugin_basename( __FILE__ ) );
 
 /**
  * The code that runs during plugin activation.
