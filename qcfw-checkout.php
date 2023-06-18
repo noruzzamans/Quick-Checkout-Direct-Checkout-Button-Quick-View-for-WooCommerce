@@ -43,6 +43,31 @@ define( 'QCFW_CHECKOUT_NAME', 'Quick Checkout for WooCommerce' );
 define( 'QCFW_CHECKOUT_FULL_NAME', 'Quick Checkout for WooCommerce' );
 define( 'QCFW_CHECKOUT_BASE_NAME', plugin_basename( __FILE__ ) );
 
+
+require __DIR__ . '/vendor/autoload.php';
+
+
+/**
+ * Initialize the plugin tracker
+ *
+ * @return void
+ */
+function appsero_init_tracker_quick_checkout_for_woocommerce() {
+
+    if ( ! class_exists( 'Appsero\Client' ) ) {
+      require_once __DIR__ . '/appsero/src/Client.php';
+    }
+
+    $client = new Appsero\Client( 'f5fcbe42-f8a4-458e-94ee-54f76d1f7de9', 'Quick Checkout for WooCommerce', __FILE__ );
+
+    // Active insights
+    $client->insights()->init();
+
+}
+
+appsero_init_tracker_quick_checkout_for_woocommerce();
+
+
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-qcfw-checkout-activator.php
