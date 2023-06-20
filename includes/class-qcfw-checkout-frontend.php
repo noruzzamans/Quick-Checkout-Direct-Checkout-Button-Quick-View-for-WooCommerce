@@ -4,6 +4,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+require_once QCFW_CHECKOUT_PATH . 'includes/class-qcfw-checkout-setting.php';
+
+$redirect_url = get_option( 'qcwf_checkout_general_cart_redirect_url', 'checkout' );
+
+
 class Qcfw_Checkout_Frontend {
 
 	/**
@@ -21,9 +26,22 @@ class Qcfw_Checkout_Frontend {
 	/**
 	 * Add to cart redirect
 	 */
-	public function qcwf_add_to_cart_redirect(){
-		return wc_get_checkout_url();
+	public function qcwf_add_to_cart_redirect() {
+		$redirect_url = get_option( 'qcwf_checkout_general_cart_redirect_url', 'checkout' );
+
+		switch ( $redirect_url ) {
+			case 'no':
+				return false; // No redirection needed
+			case 'checkout':
+				return wc_get_checkout_url();
+			// case 'custom':
+			// 	$custom_url = get_option( 'qcwf_checkout_general_cart_redirect_custom_url', wc_get_checkout_url() );
+			// 	return esc_url( $custom_url );
+			default:
+				return wc_get_checkout_url();
+		}
 	}
+
 
 	/**
 	 * Instance

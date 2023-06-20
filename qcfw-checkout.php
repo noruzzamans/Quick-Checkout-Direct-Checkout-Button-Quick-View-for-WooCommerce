@@ -39,6 +39,7 @@ define( 'QCFW_CHECKOUT_VERSION', '1.0.0' );
 define( 'QCFW_CHECKOUT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'QCFW_CHECKOUT_URL', plugin_dir_url( __FILE__ ) );
 define( 'QCFW_CHECKOUT_SLUG', 'qcfw-checkout' );
+define( 'QCFW_CHECKOUT_TEXT_DOMAIN', 'qcfw-checkout' );
 define( 'QCFW_CHECKOUT_NAME', 'Quick Checkout for WooCommerce' );
 define( 'QCFW_CHECKOUT_FULL_NAME', 'Quick Checkout for WooCommerce' );
 define( 'QCFW_CHECKOUT_BASE_NAME', plugin_basename( __FILE__ ) );
