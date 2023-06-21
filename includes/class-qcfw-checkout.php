@@ -80,6 +80,7 @@ class Qcfw_Checkout {
 		$this->define_public_hooks();
 		$this->register_general();
 		$this->register_general_setting();
+		$this->register_buy_now_setting();
 
 	}
 
@@ -129,6 +130,7 @@ class Qcfw_Checkout {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/frontend/class-qcfw-checkout-general.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-general-setting.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-buy-now-setting.php';
 
 		$this->loader = new Qcfw_Checkout_Loader();
 
@@ -239,8 +241,13 @@ class Qcfw_Checkout {
      * @access   private
      */
     private function register_general_setting() {
-        $plugin_pages = new Qcfw_Checkout_General_Settings();
+        $plugin_pages = new Qcfw_Checkout_General_Setting();
 		$plugin_pages->register_qcfw_checkout_general_settings();
+    }
+
+	private function register_buy_now_setting() {
+        $plugin_pages = new Qcfw_Checkout_Buy_Now_Setting();
+		$plugin_pages->register_qcfw_checkout_buy_now_settings();
     }
 
 }

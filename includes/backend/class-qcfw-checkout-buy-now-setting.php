@@ -4,11 +4,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class Qcfw_Checkout_General_Setting {
+class Qcfw_Checkout_Buy_Now_Setting {
 
 	public static $plugin_name = QCFW_CHECKOUT_TEXT_DOMAIN;
 
-    public function register_qcfw_checkout_general_settings(){
+    public function register_qcfw_checkout_buy_now_settings(){
         add_action('admin_menu', array($this, 'qcwf_checkout_admin_menu'));
 		add_filter( 'woocommerce_settings_tabs_array', array( $this, 'qcwf_checkout_add_setting_tab' ), 50 );
 
@@ -59,14 +59,8 @@ class Qcfw_Checkout_General_Setting {
 
 	public function qcwf_checkout_add_section() {
 		global $current_section;
-		?>
-			<ul class="subsubsub">
-				<li><a href="<?php echo esc_url( admin_url( 'admin.php?page=wc-settings&tab=' . QCFW_CHECKOUT_SLUG . '&section' ) ); ?>" class="<?php echo ( '' == $current_section ? 'current' : '' ); ?>"><?php esc_html_e( 'General', QCFW_CHECKOUT_SLUG ); ?></a> | </li>
-				<li><a href="<?php echo esc_url( admin_url( 'admin.php?page=wc-settings&tab=' . QCFW_CHECKOUT_SLUG . '&section=buy-now' ) ); ?>" class="<?php echo ( 'buy-now' == $current_section ? 'current' : '' ); ?>"><?php esc_html_e( 'Buy Now Button', QCFW_CHECKOUT_SLUG ); ?></a> | </li>
-			</ul>
-			<br class="clear" />
-		<?php
-		if ( '' == $current_section ) {
+
+		if ( 'buy-now' == $current_section ) {
 
 			$settings = $this->qcwf_checkout_settings();
 			woocommerce_admin_fields( $settings );
@@ -76,7 +70,7 @@ class Qcfw_Checkout_General_Setting {
 	public function qcwf_checkout_save_settings(){
 		global $current_section;
 
-		if ( '' == $current_section ) {
+		if ( 'buy-now' == $current_section ) {
 
 			woocommerce_update_options( $this->qcwf_checkout_settings() );
 		}
