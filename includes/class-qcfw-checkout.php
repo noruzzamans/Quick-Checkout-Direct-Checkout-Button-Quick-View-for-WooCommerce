@@ -78,8 +78,8 @@ class Qcfw_Checkout {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-		$this->register_frontend();
-		$this->register_settings();
+		$this->register_general();
+		$this->register_general_setting();
 
 	}
 
@@ -127,8 +127,8 @@ class Qcfw_Checkout {
 		/**
 		 * The class responsible for defining checkout page
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-qcfw-checkout-frontend.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-qcfw-checkout-setting.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/frontend/class-qcfw-checkout-general.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-general-setting.php';
 
 		$this->loader = new Qcfw_Checkout_Loader();
 
@@ -228,9 +228,9 @@ class Qcfw_Checkout {
      *
      * @access   private
      */
-    private function register_frontend() {
-        $plugin_pages = new Qcfw_Checkout_Frontend();
-		$plugin_pages->register_qcfw_checkout_frontend();
+    private function register_general() {
+        $plugin_pages = new Qcfw_Checkout_General();
+		$plugin_pages->register_qcfw_checkout_frontend_general();
     }
 
 	/**
@@ -238,9 +238,9 @@ class Qcfw_Checkout {
      *
      * @access   private
      */
-    private function register_settings() {
-        $plugin_pages = new Qcfw_Checkout_Settings();
-		$plugin_pages->register_qcfw_checkout_settings();
+    private function register_general_setting() {
+        $plugin_pages = new Qcfw_Checkout_General_Settings();
+		$plugin_pages->register_qcfw_checkout_general_settings();
     }
 
 }

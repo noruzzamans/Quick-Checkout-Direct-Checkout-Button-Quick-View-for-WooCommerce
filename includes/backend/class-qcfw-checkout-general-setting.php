@@ -4,15 +4,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class Qcfw_Checkout_Settings {
+class Qcfw_Checkout_General_Settings {
 
 	public static $plugin_name = QCFW_CHECKOUT_TEXT_DOMAIN;
 
-    public function register_qcfw_checkout_settings(){
+    public function register_qcfw_checkout_general_settings(){
         add_action('admin_menu', array($this, 'qcwf_checkout_admin_menu'));
 		add_filter( 'woocommerce_settings_tabs_array', array( $this, 'qcwf_checkout_add_setting_tab' ), 50 );
 
-		add_action( 'woocommerce_sections_' . QCFW_CHECKOUT_SLUG, array( $this, 'qcwf_checkout_add_section' ), 99 );
+		add_action( 'woocommerce_sections_' . QCFW_CHECKOUT_SLUG, array( $this, 'qcwf_checkout_add_section' ) );
 		add_action( 'woocommerce_settings_save_' . QCFW_CHECKOUT_SLUG, array( $this, 'qcwf_checkout_save_settings' ) );
     }
 
@@ -45,19 +45,14 @@ class Qcfw_Checkout_Settings {
 				'type'     => 'select',
 				'class'    => 'chosen_select',
 				'options'  => array(
-					'no'       => esc_html__( 'No', QCFW_CHECKOUT_TEXT_DOMAIN ),
+					'cart'       => esc_html__( 'Cart', QCFW_CHECKOUT_TEXT_DOMAIN ),
 					'checkout' => esc_html__( 'Checkout', QCFW_CHECKOUT_TEXT_DOMAIN ),
-					// 'custom'   => esc_html__( 'Custom URL', QCFW_CHECKOUT_TEXT_DOMAIN ),
 				),
 				'default'  => 'checkout',
 			),
-			// array(
-			// 	'id'          => 'qcwf_checkout_general_cart_redirect_custom_url',
-			// 	'name'        => esc_html__( 'Redirect add to cart custom url', QCFW_CHECKOUT_TEXT_DOMAIN ),
-			// 	'desc_tip'    => esc_html__( 'Redirect add to cart custom url', QCFW_CHECKOUT_TEXT_DOMAIN ),
-			// 	'type'        => 'text',
-			// 	'placeholder' => wc_get_checkout_url(),
-			// ),
+			array(
+				'type' => 'sectionend',
+			),
 		);
 	}
 

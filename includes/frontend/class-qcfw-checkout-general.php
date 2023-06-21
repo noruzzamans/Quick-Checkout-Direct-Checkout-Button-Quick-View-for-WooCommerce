@@ -4,12 +4,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require_once QCFW_CHECKOUT_PATH . 'includes/class-qcfw-checkout-setting.php';
+require_once QCFW_CHECKOUT_PATH . 'includes/backend/class-qcfw-checkout-general-setting.php';
 
 $redirect_url = get_option( 'qcwf_checkout_general_cart_redirect_url', 'checkout' );
 
 
-class Qcfw_Checkout_Frontend {
+class Qcfw_Checkout_General {
 
 	/**
 	 * The single instance of the class.
@@ -19,7 +19,7 @@ class Qcfw_Checkout_Frontend {
 	/**
      * Register plugin frontend.
      */
-	public function register_qcfw_checkout_frontend(){
+	public function register_qcfw_checkout_frontend_general(){
 		add_filter( 'woocommerce_add_to_cart_redirect', array( $this, 'qcwf_add_to_cart_redirect' ) );
 	}
 
@@ -30,13 +30,10 @@ class Qcfw_Checkout_Frontend {
 		$redirect_url = get_option( 'qcwf_checkout_general_cart_redirect_url', 'checkout' );
 
 		switch ( $redirect_url ) {
-			case 'no':
-				return false; // No redirection needed
+			case 'cart':
+				return wc_get_cart_url();
 			case 'checkout':
 				return wc_get_checkout_url();
-			// case 'custom':
-			// 	$custom_url = get_option( 'qcwf_checkout_general_cart_redirect_custom_url', wc_get_checkout_url() );
-			// 	return esc_url( $custom_url );
 			default:
 				return wc_get_checkout_url();
 		}
