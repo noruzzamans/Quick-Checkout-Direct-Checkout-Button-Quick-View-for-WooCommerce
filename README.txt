@@ -53,4 +53,6 @@ Yes, it’s completely free.
 == Screenshots ==
 
 == Changelog ==
+= 1.0.1 - 23 June 2023 =
+new: Add Direct Checkout Button
                                          
