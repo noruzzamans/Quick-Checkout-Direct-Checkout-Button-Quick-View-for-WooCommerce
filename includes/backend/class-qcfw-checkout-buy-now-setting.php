@@ -81,6 +81,20 @@ class Qcfw_Checkout_Buy_Now_Setting {
 				'default'  => 'checkout',
 			),
 			array(
+				'id'   => 'qcwf_checkout_shop_buy_now_btn_bg_color',
+				'name' => esc_html__( 'Buy now button backguound color', QCFW_CHECKOUT_TEXT_DOMAIN ),
+				'desc_tip' => esc_html__( 'Buy now button backguound color', QCFW_CHECKOUT_TEXT_DOMAIN ),
+				'type'     => 'color',
+				'default'  => '#ee6443',
+			),
+			array(
+				'id'   => 'qcwf_checkout_shop_buy_now_btn_text_color',
+				'name' => esc_html__( 'Buy now button text color', QCFW_CHECKOUT_TEXT_DOMAIN ),
+				'desc_tip' => esc_html__( 'Buy now button text color', QCFW_CHECKOUT_TEXT_DOMAIN ),
+				'type'     => 'color',
+				'default'  => '#ffffff',
+			),
+			array(
 				'type' => 'sectionend',
 			),
 		);

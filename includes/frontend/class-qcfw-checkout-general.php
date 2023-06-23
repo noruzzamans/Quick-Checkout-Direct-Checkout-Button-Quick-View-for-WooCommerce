@@ -6,8 +6,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once QCFW_CHECKOUT_PATH . 'includes/backend/class-qcfw-checkout-general-setting.php';
 
-$redirect_url = get_option( 'qcwf_checkout_general_cart_redirect_url', 'checkout' );
-
 
 class Qcfw_Checkout_General {
 
@@ -27,11 +25,15 @@ class Qcfw_Checkout_General {
 	 * Add to cart redirect
 	 */
 	public function qcwf_add_to_cart_redirect() {
-		$redirect_url = get_option( 'qcwf_checkout_general_cart_redirect_url', 'checkout' );
+		//Buy now button redirect
+		if(isset($_POST['qcfw_checkout']) || isset($_GET['qcfw_checkout'])){
+			$redirect_link = Qcfw_Checkout_Buy_Now::qcwf_checkout_shop_buy_now_btn_redirect();
+			return $redirect_link;
+		}
 
+		//Global Redirect
+		$redirect_url = get_option( 'qcwf_checkout_general_cart_redirect_url', 'checkout' );
 		switch ( $redirect_url ) {
-			case 'no':
-				return wc_get_cart_url();
 			case 'cart':
 				return wc_get_cart_url();
 			case 'checkout':
