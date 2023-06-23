@@ -25,10 +25,16 @@ class Qcfw_Checkout_General {
 	 * Add to cart redirect
 	 */
 	public function qcwf_add_to_cart_redirect() {
-		//Buy now button redirect
+		//Shop page Buy now button redirect
 		if(isset($_POST['qcfw_checkout']) || isset($_GET['qcfw_checkout'])){
-			$redirect_link = Qcfw_Checkout_Buy_Now::qcwf_checkout_shop_buy_now_btn_redirect();
-			return $redirect_link;
+			$shop_btn_redirect_link = Qcfw_Checkout_Buy_Now::qcwf_checkout_shop_buy_now_btn_redirect();
+			return $shop_btn_redirect_link;
+		}
+
+		//Single page Buy now button redirect
+		if(isset($_POST['qcfw_checkouts']) || isset($_GET['qcfw_checkouts'])){
+			$single_btn_redirect_link = Qcfw_Checkout_Single_Buy_Now::qcwf_checkout_single_buy_now_btn_redirect();
+			return $single_btn_redirect_link;
 		}
 
 		//Global Redirect
