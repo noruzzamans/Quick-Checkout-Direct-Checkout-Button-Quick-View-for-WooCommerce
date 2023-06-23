@@ -19,7 +19,7 @@ class Qcfw_Checkout_General {
 	/**
      * Register plugin frontend.
      */
-	public function register_qcfw_checkout_frontend_general(){
+	public function register_qcfw_checkout_general(){
 		add_filter( 'woocommerce_add_to_cart_redirect', array( $this, 'qcwf_add_to_cart_redirect' ) );
 	}
 
@@ -30,6 +30,8 @@ class Qcfw_Checkout_General {
 		$redirect_url = get_option( 'qcwf_checkout_general_cart_redirect_url', 'checkout' );
 
 		switch ( $redirect_url ) {
+			case 'no':
+				return wc_get_cart_url();
 			case 'cart':
 				return wc_get_cart_url();
 			case 'checkout':

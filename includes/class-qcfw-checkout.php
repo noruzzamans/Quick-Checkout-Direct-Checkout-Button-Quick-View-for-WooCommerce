@@ -79,6 +79,7 @@ class Qcfw_Checkout {
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 		$this->register_general();
+		$this->register_buy_now();
 		$this->register_general_setting();
 		$this->register_buy_now_setting();
 
@@ -129,6 +130,8 @@ class Qcfw_Checkout {
 		 * The class responsible for defining checkout page
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/frontend/class-qcfw-checkout-general.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/frontend/class-qcfw-checkout-buy-now.php';
+
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-general-setting.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-buy-now-setting.php';
 
@@ -226,14 +229,25 @@ class Qcfw_Checkout {
 	}
 
 	/**
-     * Register plugin frontend.
+     * Register plugin frontend General.
      *
      * @access   private
      */
     private function register_general() {
         $plugin_pages = new Qcfw_Checkout_General();
-		$plugin_pages->register_qcfw_checkout_frontend_general();
+		$plugin_pages->register_qcfw_checkout_general();
     }
+
+	/**
+     * Register plugin frontend Buy Now.
+     *
+     * @access   private
+     */
+    private function register_buy_now() {
+        $plugin_pages = new Qcfw_Checkout_Buy_Now();
+		$plugin_pages->register_qcfw_checkout_buy_now();
+    }
+
 
 	/**
      * Register plugin Settings.

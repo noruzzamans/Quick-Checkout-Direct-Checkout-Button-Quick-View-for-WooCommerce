@@ -45,6 +45,7 @@ class Qcfw_Checkout_General_Setting {
 				'type'     => 'select',
 				'class'    => 'chosen_select',
 				'options'  => array(
+					'no'       => esc_html__( 'No', QCFW_CHECKOUT_TEXT_DOMAIN ),
 					'cart'       => esc_html__( 'Cart', QCFW_CHECKOUT_TEXT_DOMAIN ),
 					'checkout' => esc_html__( 'Checkout', QCFW_CHECKOUT_TEXT_DOMAIN ),
 				),
