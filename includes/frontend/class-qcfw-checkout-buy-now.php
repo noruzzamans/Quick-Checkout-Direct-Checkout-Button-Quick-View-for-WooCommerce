@@ -33,7 +33,9 @@ class Qcfw_Checkout_Buy_Now {
 		$product_id = $product->get_id();
 		$link = $this->get_shop_add_to_cart_link($product_id);
 		
-		return '<a style="' . $button_style . '" class="qcfw_shop_buy_now_button button" href="'. $link .'">'. $label .'</a>';
+		if ( $product->get_type() == 'simple' ) {
+			return '<a style="' . $button_style . '" class="qcfw_shop_buy_now_button button" href="'. $link .'">'. $label .'</a>';
+		}
 	}
 
 	public function get_shop_add_to_cart_link($product_id) {

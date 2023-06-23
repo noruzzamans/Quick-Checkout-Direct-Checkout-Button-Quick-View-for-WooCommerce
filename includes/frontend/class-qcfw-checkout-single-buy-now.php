@@ -27,13 +27,15 @@ class Qcfw_Checkout_Single_Buy_Now {
 		$label = get_option( 'qcwf_checkout_single_buy_now_btn_label', 'Buy Now' );
 		$label_bg_color = get_option( 'qcwf_checkout_single_buy_now_btn_bg_color', '#ebe9eb' );
 		$label_text_color = get_option( 'qcwf_checkout_single_buy_now_btn_text_color', '#515151' );
-		$button_style = 'background-color: ' . $label_bg_color . '; color: ' . $label_text_color . '; margin-left: 15px; margin-right: 15px;';
+		$button_style = 'background-color: ' . $label_bg_color . '; color: ' . $label_text_color . '; margin-left: 10px; margin-right: 10px;';
 
 		global $product;
 		$product_id = $product->get_id();
 		$link = $this->get_single_add_to_cart_link($product_id);
 		
-		return '<a style="' . $button_style . '" class="qcfw_single_buy_now_button single_add_to_cart_button button" href="'. $link .'">'. $label .'</a>';
+		if ( $product->get_type() == 'simple' ) {
+			return '<a style="' . $button_style . '" class="qcfw_single_buy_now_button single_add_to_cart_button button" href="'. $link .'">'. $label .'</a>';
+		}
 	}
 
 	public function get_single_add_to_cart_link($product_id) {

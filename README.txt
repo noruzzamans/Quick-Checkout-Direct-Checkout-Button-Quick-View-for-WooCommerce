@@ -1,4 +1,4 @@
-=== Quick Checkout for WooCommerce ===
+=== Quick Checkout, Direct checkout Button for WooCommerce ===
 Contributors: noruzzaman
 Tags: checkout, quick, quick checkout, direct checkout, woocommerce
 Requires at least: 5.0
