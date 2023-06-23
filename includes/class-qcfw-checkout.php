@@ -82,6 +82,7 @@ class Qcfw_Checkout {
 		$this->register_buy_now();
 		$this->register_general_setting();
 		$this->register_buy_now_setting();
+		$this->register_single_buy_now_setting();
 
 	}
 
@@ -134,6 +135,7 @@ class Qcfw_Checkout {
 
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-general-setting.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-buy-now-setting.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-single-buy-now-setting.php';
 
 		$this->loader = new Qcfw_Checkout_Loader();
 
@@ -262,6 +264,11 @@ class Qcfw_Checkout {
 	private function register_buy_now_setting() {
         $plugin_pages = new Qcfw_Checkout_Buy_Now_Setting();
 		$plugin_pages->register_qcfw_checkout_buy_now_settings();
+    }
+
+	private function register_single_buy_now_setting() {
+        $plugin_pages = new Qcfw_Checkout_Single_Buy_Now_Setting();
+		$plugin_pages->register_qcfw_checkout_single_buy_now_settings();
     }
 
 }

@@ -43,7 +43,6 @@ class Qcfw_Checkout_General {
 		}
 	}
 
-
 	/**
 	 * Instance
 	 */
