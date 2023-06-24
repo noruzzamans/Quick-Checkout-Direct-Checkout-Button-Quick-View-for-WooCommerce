@@ -100,11 +100,26 @@ class Qcfw_Checkout_Admin {
 
 	}
 
-	public function qcfw_checkout_add_action_plugin(){
-		$settinglinks = array(
+	/**
+     * Setting link
+     *
+     * @param $actions
+     * @return array
+     */
+	public function qcfw_checkout_add_action_plugin($actions){
+
+		$qcfw_checkout_setting_link = array(
 			'<a class="bd_toc_setting_button" href="'.esc_url(admin_url('/admin.php?page=wc-settings&tab=qcfw-checkout')).'">' . __( 'Settings', QCFW_CHECKOUT_TEXT_DOMAIN ) . '</a>',
 		);
-		return $settinglinks;
+
+        $actions = array_merge( $actions, $qcfw_checkout_setting_link );
+
+		if (isset($_GET['activate']) && $_GET['activate'] === 'true') {
+			wp_redirect(admin_url('/admin.php?page=wc-settings&tab=qcfw-checkout'));
+			exit;
+		}
+
+        return $actions;
 	}
 
 }

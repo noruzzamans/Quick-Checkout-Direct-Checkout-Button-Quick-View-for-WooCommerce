@@ -173,7 +173,7 @@ class Qcfw_Checkout {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-		$this->loader->add_filter( 'plugin_action_links_' . QCFW_CHECKOUT_NAME, $plugin_admin, 'qcfw_checkout_add_action_plugin', 15, 2 );
+		$this->loader->add_filter( 'plugin_action_links_' . QCFW_CHECKOUT_BASE_NAME, $plugin_admin, 'qcfw_checkout_add_action_plugin', 15, 2 );
 	}
 
 	/**
