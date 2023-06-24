@@ -100,4 +100,11 @@ class Qcfw_Checkout_Admin {
 
 	}
 
+	public function qcfw_checkout_add_action_plugin(){
+		$settinglinks = array(
+			'<a class="bd_toc_setting_button" href="'.esc_url(admin_url('/admin.php?page=wc-settings&tab=qcfw-checkout')).'">' . __( 'Settings', QCFW_CHECKOUT_TEXT_DOMAIN ) . '</a>',
+		);
+		return $settinglinks;
+	}
+
 }
