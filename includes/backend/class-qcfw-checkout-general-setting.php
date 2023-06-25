@@ -39,15 +39,16 @@ class Qcfw_Checkout_General_Setting {
 			),
 			array(
 				'id'       => 'qcwf_checkout_general_cart_redirect_url',
-				'name'     => esc_html__( 'Redirect add to cart url', QCFW_CHECKOUT_TEXT_DOMAIN ),
-				'desc_tip' => esc_html__( 'Redirect add to cart url', QCFW_CHECKOUT_TEXT_DOMAIN ),
+				'name'     => esc_html__( 'Global Redirect add to cart url', QCFW_CHECKOUT_TEXT_DOMAIN ),
+				'desc_tip' => esc_html__( 'Globally Redirect add to cart url', QCFW_CHECKOUT_TEXT_DOMAIN ),
 				'type'     => 'select',
 				'class'    => 'chosen_select',
 				'options'  => array(
+					'no'       => esc_html__( 'No', QCFW_CHECKOUT_TEXT_DOMAIN ),
 					'cart'       => esc_html__( 'Cart', QCFW_CHECKOUT_TEXT_DOMAIN ),
 					'checkout' => esc_html__( 'Checkout', QCFW_CHECKOUT_TEXT_DOMAIN ),
 				),
-				'default'  => 'checkout',
+				'default'  => 'no',
 			),
 			array(
 				'type' => 'sectionend',
