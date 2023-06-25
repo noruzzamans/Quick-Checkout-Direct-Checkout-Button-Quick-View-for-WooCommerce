@@ -114,11 +114,6 @@ class Qcfw_Checkout_Admin {
 
         $actions = array_merge( $actions, $qcfw_checkout_setting_link );
 
-		if (isset($_GET['activate']) && $_GET['activate'] === 'true') {
-			wp_redirect(admin_url('/admin.php?page=wc-settings&tab=qcfw-checkout'));
-			exit;
-		}
-
         return $actions;
 	}
 
