@@ -8,17 +8,17 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://https://github.com/noruzzamanrubel
+ * @link              https://github.com/noruzzamanrubel
  * @since             1.0.0
  * @package           Qcfw_Checkout
  *
  * @wordpress-plugin
  * Plugin Name:       Quick Checkout, Direct Checkout Button for WooCommerce
- * Plugin URI:        https://https://github.com/noruzzamanrubel
+ * Plugin URI:        https://wordpress.org/plugins/quick-checkout-for-woocommerce/
  * Description:       Quick Checkout for WooCommerce is a streamlined and user-friendly plugin that simplifies the checkout process for your WooCommerce online store.
  * Version:           1.0.1
  * Author:            Noruzzaman
- * Author URI:        https://https://github.com/noruzzamanrubel
+ * Author URI:        https://github.com/noruzzamanrubel
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       qcfw-checkout
