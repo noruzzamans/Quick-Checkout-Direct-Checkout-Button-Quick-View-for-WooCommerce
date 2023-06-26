@@ -8,7 +8,7 @@ Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Improve your conversion rate with a streamlined and increase sales with a simple checkout process.
+100% Free and customizable direct checkout button. Improve your conversion rate with a streamlined process and increase sales with a simple checkout process.
 
 == Description ==
 
