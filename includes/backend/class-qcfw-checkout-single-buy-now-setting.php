@@ -6,8 +6,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Qcfw_Checkout_Single_Buy_Now_Setting {
 
-	public static $plugin_name = QCFW_CHECKOUT_TEXT_DOMAIN;
-
     public function register_qcfw_checkout_single_buy_now_settings(){
 		add_action( 'woocommerce_sections_' . QCFW_CHECKOUT_SLUG, array( $this, 'qcwf_checkout_add_single_buy_now_section' ) );
 		add_action( 'woocommerce_settings_save_' . QCFW_CHECKOUT_SLUG, array( $this, 'qcwf_checkout_save_single_buy_now_settings' ) );

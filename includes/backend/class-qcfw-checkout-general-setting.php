@@ -6,8 +6,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Qcfw_Checkout_General_Setting {
 
-	public static $plugin_name = QCFW_CHECKOUT_TEXT_DOMAIN;
-
     public function register_qcfw_checkout_general_settings(){
         add_action('admin_menu', array($this, 'qcwf_checkout_admin_menu'));
 		add_filter( 'woocommerce_settings_tabs_array', array( $this, 'qcwf_checkout_add_setting_tab' ), 50 );

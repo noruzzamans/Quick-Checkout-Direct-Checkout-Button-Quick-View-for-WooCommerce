@@ -41,7 +41,7 @@ define( 'QCFW_CHECKOUT_URL', plugin_dir_url( __FILE__ ) );
 define( 'QCFW_CHECKOUT_SLUG', 'qcfw-checkout' );
 define( 'QCFW_CHECKOUT_TEXT_DOMAIN', 'qcfw-checkout' );
 define( 'QCFW_CHECKOUT_NAME', 'Quick Checkout for WooCommerce' );
-define( 'QCFW_CHECKOUT_FULL_NAME', 'Quick Checkout for WooCommerce' );
+define( 'QCFW_CHECKOUT_FULL_NAME', 'Quick Checkout, Direct Checkout Button for WooCommerce' );
 define( 'QCFW_CHECKOUT_BASE_NAME', plugin_basename( __FILE__ ) );
 
 
@@ -67,6 +67,25 @@ function appsero_init_tracker_quick_checkout_for_woocommerce() {
 }
 
 appsero_init_tracker_quick_checkout_for_woocommerce();
+
+function qcfw_woocommerce_activation_notice() {
+
+	if (!class_exists('WooCommerce')) {
+
+		add_action('admin_notices', function() {
+			?>
+				<div class="notice notice-error is-dismissible">
+					<p><?php printf(__('The %s plugin requires WooCommerce to be activated in order to work. If WooCommerce is not activated, please activate it before using the plugin.', QCFW_CHECKOUT_TEXT_DOMAIN), '<b>' . QCFW_CHECKOUT_FULL_NAME . '</b>'); ?></p>
+				</div>
+			<?php
+		}, 10);
+
+		return false;
+	}
+
+	return true;
+}
+add_action('init', 'qcfw_woocommerce_activation_notice', 10);
 
 
 /**
