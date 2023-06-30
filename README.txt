@@ -1,9 +1,9 @@
-=== Quick Checkout, Direct Checkout Button for WooCommerce ===
+=== Quick Checkout, Direct Checkout Button, Custom Add to Cart Button for WooCommerce ===
 Contributors: noruzzaman
-Tags: checkout, quick, quick checkout, direct checkout, woocommerce
+Tags: checkout, quick checkout, direct checkout, Add to Cart, woocommerce
 Requires at least: 5.0
 Tested up to: 6.2
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
