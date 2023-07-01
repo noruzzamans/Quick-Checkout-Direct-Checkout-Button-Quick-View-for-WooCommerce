@@ -45,7 +45,7 @@ class Qcfw_Checkout_Add_To_Cart {
 				return $qcwf_checkout_shop_external_add_to_cart_btn;
 				break;
 			default:
-				return __( 'Add to Cart', QCFW_CHECKOUT_TEXT_DOMAIN );
+				return __( 'Add to Cart', 'qcfw-checkout' );
 				break;
 		}
 	}	
@@ -72,7 +72,7 @@ class Qcfw_Checkout_Add_To_Cart {
 				return $qcwf_checkout_single_external_add_to_cart_btn;
 				break;
 			default:
-				return __( 'Add to Cart', QCFW_CHECKOUT_TEXT_DOMAIN );
+				return __( 'Add to Cart', 'qcfw-checkout' );
 				break;
 		}
 	}

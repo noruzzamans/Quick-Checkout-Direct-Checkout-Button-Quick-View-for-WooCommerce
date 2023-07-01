@@ -18,13 +18,13 @@ class Qcfw_Checkout_Page {
      * Register plugin frontend.
      */
 	public function register_qcfw_checkout_page(){
-		add_filter( 'woocommerce_checkout_fields', array( $this, 'qcwf_checkout_remove_fields' ));
+		add_filter( 'woocommerce_checkout_fields', array( $this, 'qcwf_checkout_rander_remove_fields' ));
 	}
 	
 	/**
      * Removed checkout fields
      */
-	public function qcwf_checkout_remove_fields($fields) {
+	public function qcwf_checkout_rander_remove_fields($fields) {
 		$qcwf_checkout_remove_fields = get_option('qcwf_checkout_remove_fields');
 	
 		if ($qcwf_checkout_remove_fields) {

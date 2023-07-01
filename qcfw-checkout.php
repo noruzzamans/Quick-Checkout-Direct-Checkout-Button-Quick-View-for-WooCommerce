@@ -39,7 +39,6 @@ define( 'QCFW_CHECKOUT_VERSION', '1.0.1' );
 define( 'QCFW_CHECKOUT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'QCFW_CHECKOUT_URL', plugin_dir_url( __FILE__ ) );
 define( 'QCFW_CHECKOUT_SLUG', 'qcfw-checkout' );
-define( 'QCFW_CHECKOUT_TEXT_DOMAIN', 'qcfw-checkout' );
 define( 'QCFW_CHECKOUT_NAME', 'Quick Checkout for WooCommerce' );
 define( 'QCFW_CHECKOUT_FULL_NAME', 'Quick Checkout, Direct Checkout Button, Custom Add to Cart Button for WooCommerce' );
 define( 'QCFW_CHECKOUT_BASE_NAME', plugin_basename( __FILE__ ) );
@@ -75,7 +74,7 @@ function qcfw_woocommerce_activation_notice() {
 		add_action('admin_notices', function() {
 			?>
 				<div class="notice notice-error is-dismissible">
-					<p><?php printf(__('The %s plugin requires WooCommerce to be activated in order to work. If WooCommerce is not activated, please activate it before using the plugin.', QCFW_CHECKOUT_TEXT_DOMAIN), '<b>' . QCFW_CHECKOUT_FULL_NAME . '</b>'); ?></p>
+					<p><?php printf(__('The %s plugin requires WooCommerce to be activated in order to work. If WooCommerce is not activated, please activate it before using the plugin.', 'qcfw-checkout'), '<b>' . QCFW_CHECKOUT_FULL_NAME . '</b>'); ?></p>
 				</div>
 			<?php
 		}, 10);
