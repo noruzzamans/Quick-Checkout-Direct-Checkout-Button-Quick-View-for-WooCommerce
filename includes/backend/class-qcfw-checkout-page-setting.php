@@ -20,8 +20,8 @@ class Qcfw_Checkout_Page_Setting {
 			),
 			array(
 				'id'   => 'qcwf_checkout_remove_fields',
-				'name' => esc_html__( 'Hide checkout fields', 'qcfw-checkout' ),
-				'desc_tip' => esc_html__( 'Hide checkout fields', 'qcfw-checkout' ),
+				'name' => esc_html__( 'Remove checkout fields', 'qcfw-checkout' ),
+				'desc_tip' => esc_html__( 'remove checkout fields', 'qcfw-checkout' ),
 				'type'     => 'multiselect',
 				'class'    => 'chosen_select',
 				'options'  => array(
@@ -36,6 +36,42 @@ class Qcfw_Checkout_Page_Setting {
 					'state'      => esc_html__( 'State', 'qcfw-checkout' ),
 					'country'    => esc_html__( 'Country', 'qcfw-checkout' ),
 				),
+			),
+			array(
+				'id'       => 'qcwf_checkout_remove_order_notes',
+				'name'     => esc_html__( 'Remove checkout order notes', 'qcfw-checkout' ),
+				'desc_tip' => esc_html__( 'Remove checkout order notes', 'qcfw-checkout' ),
+				'type'     => 'select',
+				'class'    => 'chosen_select',
+				'options'  => array(
+					'yes' => esc_html__( 'Yes', 'qcfw-checkout' ),
+					'no'  => esc_html__( 'No', 'qcfw-checkout' ),
+				),
+				'default'  => 'no',
+			),
+			array(
+				'id'       => 'qcwf_checkout_remove_policy',
+				'name'     => esc_html__( 'Remove checkout policy', 'qcfw-checkout' ),
+				'desc_tip' => esc_html__( 'Remove checkout policy', 'qcfw-checkout' ),
+				'type'     => 'select',
+				'class'    => 'chosen_select',
+				'options'  => array(
+					'yes' => esc_html__( 'Yes', 'qcfw-checkout' ),
+					'no'  => esc_html__( 'No', 'qcfw-checkout' ),
+				),
+				'default'  => 'no',
+			),
+			array(
+				'id'       => 'qcwf_checkout_remove_terms',
+				'name'     => esc_html__( 'Remove checkout terms and conditions', 'qcfw-checkout' ),
+				'desc_tip' => esc_html__( 'Remove checkout terms and conditions', 'qcfw-checkout' ),
+				'type'     => 'select',
+				'class'    => 'chosen_select',
+				'options'  => array(
+					'yes' => esc_html__( 'Yes', 'qcfw-checkout' ),
+					'no'  => esc_html__( 'No', 'qcfw-checkout' ),
+				),
+				'default'  => 'no',
 			),
 			array(
 				'type' => 'sectionend',

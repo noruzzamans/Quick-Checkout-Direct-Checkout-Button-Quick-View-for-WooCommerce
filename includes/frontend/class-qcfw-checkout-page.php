@@ -19,6 +19,8 @@ class Qcfw_Checkout_Page {
      */
 	public function register_qcfw_checkout_page(){
 		add_filter( 'woocommerce_checkout_fields', array( $this, 'qcwf_checkout_rander_remove_fields' ));
+		add_filter( 'woocommerce_enable_order_notes_field', array( $this, 'qcwf_checkout_rander_remove_order_notes' ) );
+		add_filter( 'woocommerce_checkout_terms_and_conditions', array( $this, 'qcwf_checkout_rander_remove_policy' ) );
 	}
 	
 	/**
@@ -41,6 +43,50 @@ class Qcfw_Checkout_Page {
 		}
 	
 		return $fields;
+	}
+
+	/**
+     * Removed checkout Order notes
+     */
+	public function qcwf_checkout_rander_remove_order_notes($string) {
+		$qcwf_checkout_remove_order_notes = get_option('qcwf_checkout_remove_order_notes', 'no');
+	
+		switch ($qcwf_checkout_remove_order_notes) {
+			case 'yes':
+				$string = false;
+				break;
+			default:
+				// No action required, $string keeps its original value
+				break;
+		}
+	
+		return $string;
+	}
+
+	/**
+     * Removed checkout policy and trams and conditions
+     */
+	public function qcwf_checkout_rander_remove_policy() {
+		$qcwf_checkout_remove_policy = get_option('qcwf_checkout_remove_policy', 'no');
+		$qcwf_checkout_remove_terms = get_option('qcwf_checkout_remove_terms', 'no');
+	
+		switch ($qcwf_checkout_remove_policy) {
+			case 'yes':
+				remove_action('woocommerce_checkout_terms_and_conditions', 'wc_checkout_privacy_policy_text', 20);
+				break;
+			default:
+				// No action required
+				break;
+		}
+	
+		switch ($qcwf_checkout_remove_terms) {
+			case 'yes':
+				remove_action('woocommerce_checkout_terms_and_conditions', 'wc_terms_and_conditions_page_content', 30);
+				break;
+			default:
+				// No action required
+				break;
+		}
 	}
 	
 	/**
