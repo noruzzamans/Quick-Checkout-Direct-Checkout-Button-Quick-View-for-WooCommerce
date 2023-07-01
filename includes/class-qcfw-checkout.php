@@ -78,14 +78,17 @@ class Qcfw_Checkout {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
+
 		$this->register_general();
+		$this->register_add_to_cart();
 		$this->register_buy_now();
 		$this->register_single_buy_now();
-		$this->register_add_to_cart();
+
 		$this->register_general_setting();
+		$this->register_add_to_cart_setting();
 		$this->register_buy_now_setting();
 		$this->register_single_buy_now_setting();
-		$this->register_add_to_cart_setting();
+		$this->register_checkout_page_setting();
 
 	}
 
@@ -142,6 +145,7 @@ class Qcfw_Checkout {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-buy-now-setting.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-single-buy-now-setting.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-add-to-cart-setting.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-page-setting.php';
 
 		$this->loader = new Qcfw_Checkout_Loader();
 
@@ -315,5 +319,15 @@ class Qcfw_Checkout {
 	private function register_single_buy_now_setting() {
         $plugin_pages = new Qcfw_Checkout_Single_Buy_Now_Setting();
 		$plugin_pages->register_qcfw_checkout_single_buy_now_settings();
+    }
+
+	/**
+     * Register plugin Checkout Page Settings.
+     *
+     * @access   private
+     */
+	private function register_checkout_page_setting() {
+        $plugin_pages = new Qcfw_Checkout_Page_Setting();
+		$plugin_pages->register_qcfw_checkout_page_settings();
     }
 }

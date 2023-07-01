@@ -62,7 +62,8 @@ class Qcfw_Checkout_General_Setting {
 				<li><a href="<?php echo esc_url( admin_url( 'admin.php?page=wc-settings&tab=' . QCFW_CHECKOUT_SLUG . '&section' ) ); ?>" class="<?php echo ( '' == $current_section ? 'current' : '' ); ?>"><?php esc_html_e( 'General', QCFW_CHECKOUT_SLUG ); ?></a> | </li>
 				<li><a href="<?php echo esc_url( admin_url( 'admin.php?page=wc-settings&tab=' . QCFW_CHECKOUT_SLUG . '&section=add-to-cart' ) ); ?>" class="<?php echo ( 'add-to-cart' == $current_section ? 'current' : '' ); ?>"><?php esc_html_e( 'Add To Cart', QCFW_CHECKOUT_SLUG ); ?></a> | </li>
 				<li><a href="<?php echo esc_url( admin_url( 'admin.php?page=wc-settings&tab=' . QCFW_CHECKOUT_SLUG . '&section=buy-now' ) ); ?>" class="<?php echo ( 'buy-now' == $current_section ? 'current' : '' ); ?>"><?php esc_html_e( 'Shop Page Buy Now Button', QCFW_CHECKOUT_SLUG ); ?></a> | </li>
-				<li><a href="<?php echo esc_url( admin_url( 'admin.php?page=wc-settings&tab=' . QCFW_CHECKOUT_SLUG . '&section=single-buy-now' ) ); ?>" class="<?php echo ( 'single-buy-now' == $current_section ? 'current' : '' ); ?>"><?php esc_html_e( 'Single Page Buy Now Button', QCFW_CHECKOUT_SLUG ); ?></a> </li>
+				<li><a href="<?php echo esc_url( admin_url( 'admin.php?page=wc-settings&tab=' . QCFW_CHECKOUT_SLUG . '&section=single-buy-now' ) ); ?>" class="<?php echo ( 'single-buy-now' == $current_section ? 'current' : '' ); ?>"><?php esc_html_e( 'Single Page Buy Now Button', QCFW_CHECKOUT_SLUG ); ?></a> | </li>
+				<li><a href="<?php echo esc_url( admin_url( 'admin.php?page=wc-settings&tab=' . QCFW_CHECKOUT_SLUG . '&section=checkout' ) ); ?>" class="<?php echo ( 'checkout' == $current_section ? 'current' : '' ); ?>"><?php esc_html_e( 'Checkout', QCFW_CHECKOUT_SLUG ); ?></a> </li>
 			</ul>
 			<br class="clear" />
 		<?php
