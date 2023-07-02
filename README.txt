@@ -18,8 +18,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 - fast checkout.
 - easy checkout.
-- one-click checkout.
 - increase sales.
+- one-click checkout.
 - streamlined checkout.
 - increased conversions.
 - checkout optimization.
