@@ -21,6 +21,23 @@ class Qcfw_Checkout_Page {
 		add_filter( 'woocommerce_checkout_fields', array( $this, 'qcwf_checkout_rander_remove_fields' ));
 		add_filter( 'woocommerce_enable_order_notes_field', array( $this, 'qcwf_checkout_rander_remove_order_notes' ) );
 		add_filter( 'woocommerce_checkout_terms_and_conditions', array( $this, 'qcwf_checkout_rander_remove_policy' ) );
+		add_action( 'woocommerce_before_checkout_form', array( $this, 'qcwf_checkout_rander_remove_coupon' ), 9 );
+	}
+
+	/**
+     * Removed checkout coupon
+     */
+	public function qcwf_checkout_rander_remove_coupon() {
+		$qcwf_checkout_remove_coupon_form = get_option('qcwf_checkout_remove_coupon_form', 'no');
+		switch ($qcwf_checkout_remove_coupon_form) {
+			case 'yes':
+				remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
+				break;
+			default:
+				// No action required
+				break;
+		}
+
 	}
 	
 	/**
