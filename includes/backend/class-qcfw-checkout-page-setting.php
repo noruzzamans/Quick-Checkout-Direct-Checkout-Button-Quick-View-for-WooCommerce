@@ -19,6 +19,18 @@ class Qcfw_Checkout_Page_Setting {
 				'type' => 'title',
 			),
 			array(
+				'id'       => 'qcwf_checkout_remove_coupon_form',
+				'name'     => esc_html__( 'Remove checkout coupon form', 'qcfw-checkout' ),
+				'desc_tip' => esc_html__( 'Remove checkout coupon form', 'qcfw-checkout' ),
+				'type'     => 'select',
+				'class'    => 'chosen_select',
+				'options'  => array(
+					'yes' => esc_html__( 'Yes', 'qcfw-checkout' ),
+					'no'  => esc_html__( 'No', 'qcfw-checkout' ),
+				),
+				'default'  => 'no',
+			),
+			array(
 				'id'   => 'qcwf_checkout_remove_fields',
 				'name' => esc_html__( 'Remove checkout fields', 'qcfw-checkout' ),
 				'desc_tip' => esc_html__( 'remove checkout fields', 'qcfw-checkout' ),
