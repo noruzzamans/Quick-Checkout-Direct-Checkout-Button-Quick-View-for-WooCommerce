@@ -13,7 +13,7 @@
  * @package           Qcfw_Checkout
  *
  * @wordpress-plugin
- * Plugin Name:       Quick Checkout, Direct Checkout Button, Custom Add to Cart Button for WooCommerce
+ * Plugin Name:       Quick Checkout for WooCommerce
  * Plugin URI:        https://wordpress.org/plugins/quick-checkout-for-woocommerce/
  * Description:       Quick Checkout for WooCommerce is a streamlined and user-friendly plugin that simplifies the checkout process for your WooCommerce online store.
  * Version:           1.0.1

@@ -1,4 +1,4 @@
-=== Quick Checkout, Direct Checkout Button, Custom Add to Cart Button for WooCommerce ===
+=== Quick Checkout for WooCommerce ===
 Contributors: noruzzaman
 Tags: checkout, quick checkout, direct checkout, Add to Cart, woocommerce
 Requires at least: 5.0
