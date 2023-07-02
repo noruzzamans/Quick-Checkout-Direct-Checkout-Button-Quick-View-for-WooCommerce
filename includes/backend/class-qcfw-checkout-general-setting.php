@@ -46,7 +46,7 @@ class Qcfw_Checkout_General_Setting {
 					'cart'       => esc_html__( 'Cart', 'qcfw-checkout' ),
 					'checkout' => esc_html__( 'Checkout', 'qcfw-checkout' ),
 				),
-				'default'  => 'no',
+				'default'  => 'checkout',
 			),
 			array(
 				'type' => 'sectionend',

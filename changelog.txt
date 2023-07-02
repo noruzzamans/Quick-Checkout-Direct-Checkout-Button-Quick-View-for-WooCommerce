@@ -1,2 +1,5 @@
 = 1.0.1 - 23 June 2023 =
 new: Add Direct Checkout Button
+
+= 1.0.2 - 02 July 2023 =
+new: Add Quick Purchase button, add to cart setting add, add checkout fields removed settings.
