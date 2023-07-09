@@ -39,19 +39,21 @@ class Qcfw_Checkout_General {
 		}
 
 		//Global Redirect
-		$redirect_url = get_option( 'qcwf_checkout_general_cart_redirect_url', 'no' );
+		$redirect_url = get_option( 'qcwf_checkout_general_cart_redirect_url', 'checkout' );
 		switch ( $redirect_url ) {
+			case 'no':
+				return wc_get_cart_url();
 			case 'cart':
 				return wc_get_cart_url();
 			case 'checkout':
 				return wc_get_checkout_url();
 			default:
-				return wc_get_cart_url();
+				return wc_get_checkout_url();
 		}
 	}
 
 	public function qcwf_checkout_get_script_data_filter($params, $handle) {
-		$redirect_url = get_option('qcwf_checkout_general_cart_redirect_url', 'no');
+		$redirect_url = get_option('qcwf_checkout_general_cart_redirect_url', 'checkout');
 		
 		switch ($redirect_url) {
 			case 'checkout':
