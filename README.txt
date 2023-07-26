@@ -37,6 +37,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 **Quick Checkout for WooCommerce** is a plugin that simplifies the checkout process for your WooCommerce store. This can lead to an immediate increase in sales, as it makes it easier for customers to complete their purchases.
 
+**Direct checkout for WooCommerce** is a checkout process that allows customers to skip the shopping cart page and go directly to the checkout page. This can simplify the checkout process and reduce cart abandonment. There are a number of plugins and tools that can be used to implement direct checkout on WooCommerce websites.
+
 With **Quick Checkout**, you can redirect users to the checkout page instead of the **cart page**. This means that customers can proceed to checkout as soon as they add an item to their cart, without having to go through the extra step of viewing their cart first.
 
 With **Quick Checkout**, customers can complete their purchases swiftly and with minimal effort. The plugin simplifies the checkout form by eliminating unnecessary fields and steps, reducing the time and friction typically associated with the payment process. By removing barriers, it significantly improves the overall shopping experience and encourages customers to complete their transactions.
@@ -50,6 +52,14 @@ Another notable feature of **Quick Checkout** is its support for guest checkout.
 The plugin's user-friendly interface and intuitive configuration options make it easy for store owners to customize the checkout process according to their specific requirements. It provides flexible settings to control the display and arrangement of fields, allowing store owners to collect the necessary information while keeping the checkout form concise and uncluttered.
 
 **Quick Checkout for WooCommerce** is a feature-rich plugin that simplifies the checkout process, reduces cart abandonment, and improves conversion rates. By optimizing the user experience, supporting various payment gateways, and catering to mobile shoppers, it empowers online store owners to provide a seamless and efficient checkout process, ultimately leading to increased sales and customer satisfaction.
+
+### 🚀 Check out our Other Plugins 🚀
+
+Here are some of our amazing plugins that you can use to boost your WordPress website:
+
+[Autocomplete Order Status for WooCommerce](https://wordpress.org/plugins/autocomplete-wc-order-status/): Enhance customer satisfaction, save time, and boost efficiency by seamlessly completing orders with this powerful WordPress plugin.
+
+[Copy to Clipboard for WordPress](https://wordpress.org/plugins/copy-to-clipboard-for-wp/): Copy to Clipboard for WordPress is a powerful and user-friendly plugin designed to enhance the copy-and-paste functionality on your WordPress website.
 
 == Installation ==
 
@@ -124,4 +134,4 @@ New: Add Direct Checkout Button
 New: Add new checkout remove setting   
 
 
-                            
+                          
