@@ -1,3 +1,6 @@
+= 1.2.0 =
+New: background and text hover color button in setting panel
+
 = 1.1.0 =
 New: support for WooCommerce 7.9
 

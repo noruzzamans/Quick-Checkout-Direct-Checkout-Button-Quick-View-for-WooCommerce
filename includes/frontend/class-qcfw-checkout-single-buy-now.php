@@ -22,19 +22,34 @@ class Qcfw_Checkout_Single_Buy_Now {
 		add_action( 'woocommerce_after_add_to_cart_button', array( $this, 'qcwf_checkout_single_buy_now_after_btn' ), 10 );
 	}
 
-	public function qcfw_single_buy_now_buton_html() {
+	public function qcfw_single_buy_now_button_html() {
 
 		$label = get_option( 'qcwf_checkout_single_buy_now_btn_label', 'Buy Now' );
-		$label_bg_color = get_option( 'qcwf_checkout_single_buy_now_btn_bg_color', '#ebe9eb' );
-		$label_text_color = get_option( 'qcwf_checkout_single_buy_now_btn_text_color', '#515151' );
-		$button_style = 'background-color: ' . $label_bg_color . '; color: ' . $label_text_color . '; margin-left: 10px; margin-right: 10px;';
+		$label_bg_color = get_option( 'qcwf_checkout_single_buy_now_btn_bg_color', '#1c61e7' );
+		$label_bg_hover_color = get_option( 'qcwf_checkout_single_buy_now_btn_bg_hover_color', '#cd2653' );
+		$label_text_color = get_option( 'qcwf_checkout_single_buy_now_btn_text_color', '#ffffff' );
+		$label_text_hover_color = get_option( 'qcwf_checkout_single_buy_now_btn_text_hover_color', '#ffffff' );
+
+		?>
+			<style>
+				a.qcfw_single_buy_now_button {
+					background-color: <?php echo esc_html($label_bg_color); ?> !important;
+					color: <?php echo esc_html($label_text_color); ?> !important;
+					margin: 0 10px !important;
+				}
+				a.qcfw_single_buy_now_button:hover {
+					background-color: <?php echo esc_html($label_bg_hover_color); ?> !important;
+					color: <?php echo esc_html($label_text_hover_color); ?> !important;
+				}
+			</style>
+		<?php
 
 		global $product;
 		$product_id = $product->get_id();
 		$link = $this->get_single_add_to_cart_link($product_id);
 		
 		if ( $product->get_type() == 'simple' ) {
-			return '<a style="' . $button_style . '" class="qcfw_single_buy_now_button single_add_to_cart_button button" href="'. $link .'">'. $label .'</a>';
+			return '<a class="qcfw_single_buy_now_button single_add_to_cart_button button" href="'. $link .'">'. $label .'</a>';
 		}
 	}
 
@@ -52,7 +67,7 @@ class Qcfw_Checkout_Single_Buy_Now {
 			case 'yes':
 				switch ($single_buy_now_before_btn_position) {
 					case 'before_btn':
-						echo $this->qcfw_single_buy_now_buton_html();
+						echo $this->qcfw_single_buy_now_button_html();
 						break;
 				}
 				break;
@@ -67,7 +82,7 @@ class Qcfw_Checkout_Single_Buy_Now {
 			case 'yes':
 				switch ($single_buy_now_after_btn_position) {
 					case 'after_btn':
-						echo $this->qcfw_single_buy_now_buton_html();
+						echo $this->qcfw_single_buy_now_button_html();
 						break;
 				}
 				break;

@@ -3,7 +3,7 @@ Contributors: noruzzaman
 Tags: checkout, quick checkout, direct checkout, Add to Cart, woocommerce
 Requires at least: 5.0
 Tested up to: 6.2
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -120,6 +120,9 @@ Yes, You can remove the checkout terms and conditions through the plugin setting
 == Screenshots ==
 
 == Changelog ==
+
+= 1.2.0 =
+New: background and text hover color button in setting panel 
 
 = 1.1.0 =
 New: support for WooCommerce 7.9
