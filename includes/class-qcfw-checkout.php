@@ -78,6 +78,7 @@ class Qcfw_Checkout {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
+		$this->register_settings();
 
 		$this->register_general();
 		$this->register_add_to_cart();
@@ -86,7 +87,6 @@ class Qcfw_Checkout {
 		$this->register_checkout_page();
 
 		$this->register_general_setting();
-		$this->register_add_to_cart_setting();
 		$this->register_buy_now_setting();
 		$this->register_single_buy_now_setting();
 		$this->register_checkout_page_setting();
@@ -111,42 +111,25 @@ class Qcfw_Checkout {
 	 */
 	private function load_dependencies() {
 
-		/**
-		 * The class responsible for orchestrating the actions and filters of the
-		 * core plugin.
-		 */
+
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-qcfw-checkout-loader.php';
-
-		/**
-		 * The class responsible for defining internationalization functionality
-		 * of the plugin.
-		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-qcfw-checkout-i18n.php';
-
-		/**
-		 * The class responsible for defining all actions that occur in the admin area.
-		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-qcfw-checkout-admin.php';
-
-		/**
-		 * The class responsible for defining all actions that occur in the public-facing
-		 * side of the site.
-		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-qcfw-checkout-public.php';
 
-		/**
-		 * The class responsible for defining checkout page
-		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'libs/codestar-framework/codestar-framework.php';
+
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/frontend/class-qcfw-checkout-general.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/frontend/class-qcfw-checkout-buy-now.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/frontend/class-qcfw-checkout-single-buy-now.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/frontend/class-qcfw-checkout-add-to-cart.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/frontend/class-qcfw-checkout-page.php';
 
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-settings.php';
+
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-general-setting.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-buy-now-setting.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-single-buy-now-setting.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-add-to-cart-setting.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-page-setting.php';
 
 		$this->loader = new Qcfw_Checkout_Loader();
@@ -304,16 +287,6 @@ class Qcfw_Checkout {
     }
 
 	/**
-     * Register plugin Add To Cart Settings.
-     *
-     * @access   private
-     */
-	private function register_add_to_cart_setting() {
-        $plugin_pages = new Qcfw_Checkout_Add_To_Cart_Setting();
-		$plugin_pages->register_qcfw_checkout_add_to_cart_settings();
-    }
-
-	/**
      * Register plugin Shop Page Buy Now Settings.
      *
      * @access   private
@@ -341,5 +314,15 @@ class Qcfw_Checkout {
 	private function register_checkout_page_setting() {
         $plugin_pages = new Qcfw_Checkout_Page_Setting();
 		$plugin_pages->register_qcfw_checkout_page_settings();
+    }
+
+	/**
+	 * Register plugin settings.
+	 *
+	 * @access private
+	 */
+    private function register_settings() {
+        $plugin_settings = new Qcfw_Checkout_Settings();
+        $plugin_settings->register_qcfw_options_settings();
     }
 }

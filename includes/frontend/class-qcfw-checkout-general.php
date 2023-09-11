@@ -4,15 +4,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require_once QCFW_CHECKOUT_PATH . 'includes/backend/class-qcfw-checkout-general-setting.php';
+require_once QCFW_CHECKOUT_PATH . 'includes/backend/class-qcfw-checkout-settings.php';
 
 
 class Qcfw_Checkout_General {
 
-	/**
-	 * The single instance of the class.
-	 */
-	protected static $instance;
+   /**
+     * The single instance of the class.
+     */
+    protected static $instance;
+
+    /**
+     * Returns the single instance of the class.
+     *
+     * @return Qcfw_Checkout_General Singleton instance of the class.
+     */
+    public static function get_instance() {
+        if ( is_null( self::$instance ) ) {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
+    }
 
 	/**
      * Register plugin frontend.
@@ -39,8 +52,9 @@ class Qcfw_Checkout_General {
 		}
 
 		//Global Redirect
-		$redirect_url = get_option( 'qcwf_checkout_general_cart_redirect_url', 'checkout' );
-		switch ( $redirect_url ) {
+		$settings       					= Qcfw_Checkout_Settings::get_settings();
+		$qcfw_global_redirect_options 		= isset( $settings['qcfw_global_redirect_options'] ) ? $settings['qcfw_global_redirect_options'] : '';
+		switch ( $qcfw_global_redirect_options ) {
 			case 'no':
 				return wc_get_cart_url();
 			case 'cart':
@@ -53,9 +67,11 @@ class Qcfw_Checkout_General {
 	}
 
 	public function qcwf_checkout_get_script_data_filter($params, $handle) {
-		$redirect_url = get_option('qcwf_checkout_general_cart_redirect_url', 'checkout');
+
+		$settings       					= Qcfw_Checkout_Settings::get_settings();
+		$qcfw_global_redirect_options 		= isset( $settings['qcfw_global_redirect_options'] ) ? $settings['qcfw_global_redirect_options'] : '';
 		
-		switch ($redirect_url) {
+		switch ($qcfw_global_redirect_options) {
 			case 'checkout':
 				if ('wc-add-to-cart' == $handle) {
 					$params = array_merge($params, array(
@@ -83,15 +99,5 @@ class Qcfw_Checkout_General {
 		
 		return $params;
 	}	
-
-	/**
-	 * Instance
-	 */
-	public static function instance() {
-		if ( ! isset( self::$instance ) ) {
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
 
 }
