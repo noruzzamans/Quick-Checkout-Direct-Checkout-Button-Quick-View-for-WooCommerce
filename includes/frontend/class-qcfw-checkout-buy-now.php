@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require_once QCFW_CHECKOUT_PATH . 'includes/backend/class-qcfw-checkout-buy-now-setting.php';
+require_once QCFW_CHECKOUT_PATH . 'includes/backend/class-qcfw-checkout-settings.php';
 
 
 class Qcfw_Checkout_Buy_Now {
@@ -13,6 +13,19 @@ class Qcfw_Checkout_Buy_Now {
 	 * The single instance of the class.
 	 */
 	protected static $instance;
+
+	/**
+     * Returns the single instance of the class.
+     *
+     * @return Qcfw_Checkout_Buy_Now Singleton instance of the class.
+     */
+    public static function get_instance() {
+        if ( is_null( self::$instance ) ) {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
+    }
 
 	/**
      * Register plugin frontend.
@@ -24,23 +37,9 @@ class Qcfw_Checkout_Buy_Now {
 
 	public function qcfw_shop_buy_now_button_html() {
 
-		$label = get_option( 'qcwf_checkout_shop_buy_now_btn_label', 'Buy Now' );
-		$label_bg_color = get_option( 'qcwf_checkout_shop_buy_now_btn_bg_color', '#1c61e7' );
-		$label_bg_hover_color = get_option( 'qcwf_checkout_shop_buy_now_btn_bg_hover_color', '#eb7a61' );
-		$label_text_color = get_option( 'qcwf_checkout_shop_buy_now_btn_text_color', '#ffffff' );
-		$label_text_hover_color = get_option( 'qcwf_checkout_shop_buy_now_btn_text_hover_color', '#ffffff' );
-		?>
-			<style>
-				a.qcfw_shop_buy_now_button {
-					background-color: <?php echo esc_html($label_bg_color); ?> !important;
-					color: <?php echo esc_html($label_text_color); ?> !important;
-				}
-				a.qcfw_shop_buy_now_button:hover {
-					background-color: <?php echo esc_html($label_bg_hover_color); ?> !important;
-					color: <?php echo esc_html($label_text_hover_color); ?> !important;
-				}
-			</style>
-		<?php
+		$settings   = Qcfw_Checkout_Settings::get_settings();
+		$label 		= isset( $settings['qcwf_checkout_shop_buy_now_btn_label'] ) ? $settings['qcwf_checkout_shop_buy_now_btn_label'] : '';
+
 		
 		global $product;
 		$product_id = $product->get_id();
@@ -88,24 +87,16 @@ class Qcfw_Checkout_Buy_Now {
 	}
 
 	public static function qcwf_checkout_shop_buy_now_btn_redirect(){
-		$redirect_shop_buy_now_btn_url = get_option( 'qcwf_checkout_shop_buy_now_btn_redirect_url', 'checkout' );
-		if($redirect_shop_buy_now_btn_url == 'checkout'){
+		$settings   									= Qcfw_Checkout_Settings::get_settings();
+		$qcwf_checkout_shop_buy_now_btn_redirect_url 	= isset( $settings['qcwf_checkout_shop_buy_now_btn_redirect_url'] ) ? $settings['qcwf_checkout_shop_buy_now_btn_redirect_url'] : '';
+		
+		if($qcwf_checkout_shop_buy_now_btn_redirect_url == 'checkout'){
 			$checkout = wc_get_checkout_url();
 		}else{
 			$checkout = wc_get_cart_url();
 		}
 
 		return $checkout;
-	}
-	
-	/**
-	 * Instance
-	 */
-	public static function instance() {
-		if ( ! isset( self::$instance ) ) {
-			self::$instance = new self();
-		}
-		return self::$instance;
 	}
 
 }

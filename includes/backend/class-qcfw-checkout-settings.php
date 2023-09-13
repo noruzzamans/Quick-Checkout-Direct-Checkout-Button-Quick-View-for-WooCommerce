@@ -155,6 +155,90 @@ class Qcfw_Checkout_Settings {
                     ),
                 )
             ) );
+
+            /** Buy Now Button In Shop Page Settings */
+            CSF::createSection( $prefix, array(
+                'name'   => 'qcfw_shop_buy_now_settings',
+                'title'  => esc_html__( 'Shop Page', 'qcfw-checkout' ),
+                'fields' => array(
+                    array(
+                        'type'      => 'subheading',
+                        'content'   => esc_html__( 'Buy Now Button for Products on the Archive/Shop Page', 'qcfw-checkout' ),
+                    ),
+                    array(
+                        'id'            => 'qcwf_checkout_shop_buy_now_btn_switch',
+                        'type'          => 'switcher',
+                        'title'         => esc_html__( 'Buy now button switch', 'qcfw-checkout' ),
+                        'default'       => false,
+                    ),
+                    array(
+                        'id'            => 'qcwf_checkout_shop_buy_now_btn_label',
+                        'type'          => 'text',
+                        'title'         => esc_html__( 'Buy now button label', 'qcfw-checkout' ),
+                        'default'       => esc_html__( 'Buy Now', 'qcfw-checkout' ),
+                    ),
+                    array(
+                        'id'            => 'qcwf_checkout_shop_buy_now_btn_position',
+                        'type'          => 'select',
+                        'title'         => esc_html__( 'Position', 'qcfw-checkout' ),
+                        'subtitle'      => esc_html__( 'Choose the placement of the buy now button.', 'qcfw-checkout' ),
+                        'options'       => array(
+                            'over_product_image'        => esc_html__( 'Over product image', 'qcfw-checkout' ),
+                            'over_product_image_hover'  => esc_html__( 'Over product image hover', 'qcfw-checkout' ),
+                            'after_title'               => esc_html__( 'After title', 'qcfw-checkout' ),
+                            'after_rating'              => esc_html__( 'After rating', 'qcfw-checkout' ),
+                            'after_price'               => esc_html__( 'After price', 'qcfw-checkout' ),
+                            'before_add_to_cart'        => esc_html__( 'Before add to cart button', 'qcfw-checkout' ),
+                            'after_add_to_cart'         => esc_html__( 'After add to cart button', 'qcfw-checkout' ),
+                        ),
+                        'default'   => 'after_add_to_cart',
+                    ),
+                    array(
+                        'id'            => 'qcwf_checkout_shop_buy_now_btn_redirect_url',
+                        'type'          => 'select',
+                        'title'          => esc_html__( 'Redirect to cart or checkout page', 'qcfw-checkout' ),
+                        'options'       => array(
+                            'cart'          => esc_html__( 'Cart', 'qcfw-checkout' ),
+                            'checkout'      => esc_html__( 'Checkout', 'qcfw-checkout' ),
+                        ),
+                        'default'       => 'checkout',
+                    ),
+                    array(
+                        'id'            => 'qcwf_checkout_shop_buy_now_btn_bg_color',
+                        'type'          => 'color',
+                        'output_mode'   => 'background-color',
+                        'output'        => '.qcfw_shop_buy_now_button',
+                        'output_important'  => true,
+                        'title'         => esc_html__( 'Buy now button backguound color', 'qcfw-checkout' ),
+                        'default'       => esc_html__( '#1c61e7', 'qcfw-checkout' ),
+                    ),
+                    array(
+                        'id'            => 'qcwf_checkout_shop_buy_now_btn_bg_hover_color',
+                        'type'          => 'color',
+                        'output_mode'   => 'background-color',
+                        'output_important'  => true,
+                        'output'        => '.qcfw_shop_buy_now_button:hover',
+                        'title'         => esc_html__( 'Buy now button backguound hover color', 'qcfw-checkout' ),
+                        'default'       => esc_html__( '#eb7a61', 'qcfw-checkout' ),
+                    ),
+                    array(
+                        'id'            => 'qcwf_checkout_shop_buy_now_btn_text_color',
+                        'type'          => 'color',
+                        'output'        => '.qcfw_shop_buy_now_button',
+                        'output_important'  => true,
+                        'title'         => esc_html__( 'Buy now button text color', 'qcfw-checkout' ),
+                        'default'       => esc_html__( '#ffffff', 'qcfw-checkout' ),
+                    ),
+                    array(
+                        'id'            => 'qcwf_checkout_shop_buy_now_btn_text_hover_color',
+                        'type'          => 'color',
+                        'output'        => '.qcfw_shop_buy_now_button:hover',
+                        'output_important'  => true,
+                        'title'         => esc_html__( 'Buy now button text hover color', 'qcfw-checkout' ),
+                        'default'       => esc_html__( '#ffffff', 'qcfw-checkout' ),
+                    ),
+                )
+            ) );
         
             /** Button Settings */
             CSF::createSection( $prefix, array(
