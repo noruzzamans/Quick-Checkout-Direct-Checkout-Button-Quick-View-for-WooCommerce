@@ -240,6 +240,7 @@ class Qcfw_Checkout_Settings {
                 )
             ) );
         
+            
             /** Button Settings */
             CSF::createSection( $prefix, array(
             'name'   => 'qcfw_button_settings',
