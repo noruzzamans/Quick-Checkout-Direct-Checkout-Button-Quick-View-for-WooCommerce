@@ -80,14 +80,11 @@ class Qcfw_Checkout {
 		$this->define_public_hooks();
 		$this->register_settings();
 
-		$this->register_general();
 		$this->register_add_to_cart();
-		$this->register_buy_now();
 		$this->register_single_buy_now();
 		$this->register_checkout_page();
 
 		$this->register_general_setting();
-		$this->register_buy_now_setting();
 		$this->register_single_buy_now_setting();
 		$this->register_checkout_page_setting();
 
@@ -128,7 +125,6 @@ class Qcfw_Checkout {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-settings.php';
 
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-general-setting.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-buy-now-setting.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-single-buy-now-setting.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-page-setting.php';
 
@@ -226,16 +222,6 @@ class Qcfw_Checkout {
 	}
 
 	/**
-     * Register plugin frontend General.
-     *
-     * @access   private
-     */
-    private function register_general() {
-        $plugin_pages = new Qcfw_Checkout_General();
-		$plugin_pages->register_qcfw_checkout_general();
-    }
-
-	/**
      * Register plugin frontend Add To Cart.
      *
      * @access   private
@@ -243,16 +229,6 @@ class Qcfw_Checkout {
     private function register_add_to_cart() {
         $plugin_pages = new Qcfw_Checkout_Add_To_Cart();
 		$plugin_pages->register_qcfw_checkout_add_to_cart();
-    }
-
-	/**
-     * Register plugin frontend Shop Page Buy Now.
-     *
-     * @access   private
-     */
-    private function register_buy_now() {
-        $plugin_pages = new Qcfw_Checkout_Buy_Now();
-		$plugin_pages->register_qcfw_checkout_buy_now();
     }
 
 	/**
@@ -284,16 +260,6 @@ class Qcfw_Checkout {
     private function register_general_setting() {
         $plugin_pages = new Qcfw_Checkout_General_Setting();
 		$plugin_pages->register_qcfw_checkout_general_settings();
-    }
-
-	/**
-     * Register plugin Shop Page Buy Now Settings.
-     *
-     * @access   private
-     */
-	private function register_buy_now_setting() {
-        $plugin_pages = new Qcfw_Checkout_Buy_Now_Setting();
-		$plugin_pages->register_qcfw_checkout_buy_now_settings();
     }
 
 	/**

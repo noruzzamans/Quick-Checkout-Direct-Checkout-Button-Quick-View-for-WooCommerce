@@ -27,10 +27,7 @@ class Qcfw_Checkout_General {
         return self::$instance;
     }
 
-	/**
-     * Register plugin frontend.
-     */
-	public function register_qcfw_checkout_general(){
+	public function __construct() {
 		add_filter( 'woocommerce_add_to_cart_redirect', array( $this, 'qcwf_checkout_add_to_cart_redirect' ) );
 		add_filter( 'woocommerce_get_script_data', array($this, 'qcwf_checkout_get_script_data_filter'), 10, 2 );
 	}
@@ -101,3 +98,6 @@ class Qcfw_Checkout_General {
 	}	
 
 }
+
+/** Initialize the class instance. */
+Qcfw_Checkout_General::get_instance();
