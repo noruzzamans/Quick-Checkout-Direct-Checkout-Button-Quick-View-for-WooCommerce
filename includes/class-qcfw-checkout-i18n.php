@@ -1,28 +1,13 @@
 <?php
 
 /**
- * Define the internationalization functionality
+ * Internationalization functionality for the plugin.
  *
- * Loads and defines the internationalization files for this plugin
- * so that it is ready for translation.
+ * This class loads and defines the internationalization files, making the plugin ready for translation.
  *
- * @link       https://https://github.com/noruzzamanrubel
- * @since      1.0.0
- *
- * @package    Qcfw_Checkout
+ * @package Qcfw_Checkout
  * @subpackage Qcfw_Checkout/includes
- */
-
-/**
- * Define the internationalization functionality.
- *
- * Loads and defines the internationalization files for this plugin
- * so that it is ready for translation.
- *
- * @since      1.0.0
- * @package    Qcfw_Checkout
- * @subpackage Qcfw_Checkout/includes
- * @author     Noruzzaman <noruzzamanrubel@gmail.com>
+ * @since 1.0.0
  */
 class Qcfw_Checkout_i18n {
 

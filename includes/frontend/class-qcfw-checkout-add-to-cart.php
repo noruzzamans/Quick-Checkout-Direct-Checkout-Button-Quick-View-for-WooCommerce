@@ -27,13 +27,11 @@ class Qcfw_Checkout_Add_To_Cart {
         return self::$instance;
     }
 
-	/**
-     * Register plugin frontend.
-     */
-	public function register_qcfw_checkout_add_to_cart(){
+	public function __construct() { 
 		add_filter( 'woocommerce_product_add_to_cart_text', array( $this, 'qcwf_checkout_shop_add_to_cart_button_text_archives' ));
 		add_filter( 'woocommerce_product_single_add_to_cart_text', array( $this, 'qcwf_checkout_single_add_to_cart_button_text_single' ));
 	}
+
 
 	public function qcwf_checkout_shop_add_to_cart_button_text_archives(){
 
@@ -94,3 +92,6 @@ class Qcfw_Checkout_Add_To_Cart {
 	}
 
 }
+
+/** Initialize the class instance. */
+Qcfw_Checkout_Add_To_Cart::get_instance();

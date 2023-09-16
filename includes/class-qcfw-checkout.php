@@ -80,14 +80,6 @@ class Qcfw_Checkout {
 		$this->define_public_hooks();
 		$this->register_settings();
 
-		$this->register_add_to_cart();
-		$this->register_single_buy_now();
-		$this->register_checkout_page();
-
-		$this->register_general_setting();
-		$this->register_single_buy_now_setting();
-		$this->register_checkout_page_setting();
-
 	}
 
 	/**
@@ -121,12 +113,8 @@ class Qcfw_Checkout {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/frontend/class-qcfw-checkout-single-buy-now.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/frontend/class-qcfw-checkout-add-to-cart.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/frontend/class-qcfw-checkout-page.php';
-
+		
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-settings.php';
-
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-general-setting.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-single-buy-now-setting.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/backend/class-qcfw-checkout-page-setting.php';
 
 		$this->loader = new Qcfw_Checkout_Loader();
 
@@ -220,67 +208,6 @@ class Qcfw_Checkout {
 	public function get_version() {
 		return $this->version;
 	}
-
-	/**
-     * Register plugin frontend Add To Cart.
-     *
-     * @access   private
-     */
-    private function register_add_to_cart() {
-        $plugin_pages = new Qcfw_Checkout_Add_To_Cart();
-		$plugin_pages->register_qcfw_checkout_add_to_cart();
-    }
-
-	/**
-     * Register plugin frontend Single Page Buy Now.
-     *
-     * @access   private
-     */
-    private function register_single_buy_now() {
-        $plugin_pages = new Qcfw_Checkout_Single_Buy_Now();
-		$plugin_pages->register_qcfw_checkout_single_buy_now();
-    }
-
-	/**
-     * Register plugin frontend Checkout Page.
-     *
-     * @access   private
-     */
-    private function register_checkout_page() {
-        $plugin_pages = new Qcfw_Checkout_Page();
-		$plugin_pages->register_qcfw_checkout_page();
-    }
-	
-
-	/**
-     * Register plugin Genaral Settings.
-     *
-     * @access   private
-     */
-    private function register_general_setting() {
-        $plugin_pages = new Qcfw_Checkout_General_Setting();
-		$plugin_pages->register_qcfw_checkout_general_settings();
-    }
-
-	/**
-     * Register plugin Single Page Buy Now Settings.
-     *
-     * @access   private
-     */
-	private function register_single_buy_now_setting() {
-        $plugin_pages = new Qcfw_Checkout_Single_Buy_Now_Setting();
-		$plugin_pages->register_qcfw_checkout_single_buy_now_settings();
-    }
-
-	/**
-     * Register plugin Checkout Page Settings.
-     *
-     * @access   private
-     */
-	private function register_checkout_page_setting() {
-        $plugin_pages = new Qcfw_Checkout_Page_Setting();
-		$plugin_pages->register_qcfw_checkout_page_settings();
-    }
 
 	/**
 	 * Register plugin settings.
