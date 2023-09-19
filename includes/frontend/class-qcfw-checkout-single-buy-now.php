@@ -83,13 +83,14 @@ class Qcfw_Checkout_Single_Buy_Now {
 		$link = $this->get_single_add_to_cart_link($product_id);
 		
 		if ( $product->get_type() == 'simple' ) {
-			return '<a class="qcfw_single_buy_now_button single_add_to_cart_button button" href="'. $link .'">'. $label .'</a>';
+			// return '<a class="qcfw_single_buy_now_button single_add_to_cart_button button" href="'. $link .'">'. $label .'</a>';
 		}
+        return '<a class="qcfw_single_buy_now_button single_add_to_cart_button button" href="'. $link .'">'. $label .'</a>';
 	}
 
 	public function get_single_add_to_cart_link($product_id) {
 		$product = wc_get_product($product_id);
-		$shop_add_to_cart_link = $product->add_to_cart_url() . '&qcfw_checkouts=1';
+		$shop_add_to_cart_link = $product->add_to_cart_url();
 		return $shop_add_to_cart_link;
 	}
 	
