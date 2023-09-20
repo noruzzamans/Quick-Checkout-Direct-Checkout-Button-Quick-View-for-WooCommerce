@@ -190,16 +190,6 @@ class Qcfw_Checkout_Settings {
                     'default'   => 'after_add_to_cart',
                 ),
                 array(
-                    'id'            => 'qcwf_checkout_shop_buy_now_btn_redirect_url',
-                    'type'          => 'select',
-                    'title'          => esc_html__( 'Redirect to cart or checkout page', 'qcfw-checkout' ),
-                    'options'       => array(
-                        'cart'          => esc_html__( 'Cart', 'qcfw-checkout' ),
-                        'checkout'      => esc_html__( 'Checkout', 'qcfw-checkout' ),
-                    ),
-                    'default'       => 'checkout',
-                ),
-                array(
                     'id'            => 'qcwf_checkout_shop_buy_now_btn_bg_color',
                     'type'          => 'color',
                     'output_mode'   => 'background-color',
@@ -267,16 +257,6 @@ class Qcfw_Checkout_Settings {
                         'after_add_to_cart'     => esc_html__( 'After add to cart button', 'qcfw-checkout' ),
                     ),
                     'default'   => 'after_add_to_cart',
-                ),
-                array(
-                    'id'            => 'qcwf_checkout_single_buy_now_btn_redirect_url',
-                    'type'          => 'select',
-                    'title'          => esc_html__( 'Redirect to cart or checkout page', 'qcfw-checkout' ),
-                    'options'       => array(
-                        'cart'          => esc_html__( 'Cart', 'qcfw-checkout' ),
-                        'checkout'      => esc_html__( 'Checkout', 'qcfw-checkout' ),
-                    ),
-                    'default'       => 'checkout',
                 ),
                 array(
                     'id'            => 'qcwf_checkout_single_buy_now_btn_bg_color',

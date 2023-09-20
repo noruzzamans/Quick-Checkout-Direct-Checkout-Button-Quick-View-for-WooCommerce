@@ -36,37 +36,26 @@ class Qcfw_Checkout_General {
 	 * Add to cart redirect
 	 */
 	public function qcwf_checkout_add_to_cart_redirect() {
-		//Shop page Buy now button redirect
-		if(isset($_POST['qcfw_checkout']) || isset($_GET['qcfw_checkout'])){
-			$shop_btn_redirect_link = Qcfw_Checkout_Buy_Now::qcwf_checkout_shop_buy_now_btn_redirect();
-			return $shop_btn_redirect_link;
-		}
+		// Global Redirect setting
+		$settings = Qcfw_Checkout_Settings::get_settings();
+		$qcfw_global_redirect_options = isset($settings['qcfw_global_redirect_options']) ? $settings['qcfw_global_redirect_options'] : '';
 
-		//Single page Buy now button redirect
-		if(isset($_POST['qcfw_checkouts']) || isset($_GET['qcfw_checkouts'])){
-			$single_btn_redirect_link = Qcfw_Checkout_Single_Buy_Now::qcwf_checkout_single_buy_now_btn_redirect();
-			return $single_btn_redirect_link;
-		}
-
-		//Global Redirect
-		$settings       					= Qcfw_Checkout_Settings::get_settings();
-		$qcfw_global_redirect_options 		= isset( $settings['qcfw_global_redirect_options'] ) ? $settings['qcfw_global_redirect_options'] : '';
-		switch ( $qcfw_global_redirect_options ) {
+		switch ($qcfw_global_redirect_options) {
 			case 'no':
 				return wc_get_cart_url();
 			case 'cart':
 				return wc_get_cart_url();
 			case 'checkout':
-				return wc_get_checkout_url();
 			default:
 				return wc_get_checkout_url();
 		}
 	}
 
+
 	public function qcwf_checkout_get_script_data_filter($params, $handle) {
 
-		$settings       					= Qcfw_Checkout_Settings::get_settings();
-		$qcfw_global_redirect_options 		= isset( $settings['qcfw_global_redirect_options'] ) ? $settings['qcfw_global_redirect_options'] : '';
+		$settings       								= Qcfw_Checkout_Settings::get_settings();
+		$qcfw_global_redirect_options 					= isset( $settings['qcfw_global_redirect_options'] ) ? $settings['qcfw_global_redirect_options'] : '';
 		
 		switch ($qcfw_global_redirect_options) {
 			case 'checkout':

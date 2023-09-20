@@ -50,6 +50,9 @@ class Qcfw_Checkout_Public {
 	 */
 	public function enqueue_styles() {
 
+		/** Enqueue the Magnific CSS for the public-facing side of the site. */
+		wp_enqueue_style( $this->plugin_name.'-magnific', plugin_dir_url( __FILE__ ) . 'css/qcfw-quick-view-public-magnific.css', array(), $this->version, 'all' );
+
 		 /** Enqueue the main plugin CSS for the public-facing side of the site. */
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/qcfw-checkout-public.css', array(), $this->version, 'all' );
 

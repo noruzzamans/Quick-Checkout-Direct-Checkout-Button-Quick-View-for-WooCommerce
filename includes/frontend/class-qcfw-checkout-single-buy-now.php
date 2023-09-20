@@ -77,36 +77,11 @@ class Qcfw_Checkout_Single_Buy_Now {
 	public function qcfw_single_buy_now_button_html() {
 		$settings   = Qcfw_Checkout_Settings::get_settings();
 		$label 		= isset( $settings['qcwf_checkout_single_buy_now_btn_label'] ) ? $settings['qcwf_checkout_single_buy_now_btn_label'] : '';
-
+        
 		global $product;
-		$product_id = $product->get_id();
-		$link = $this->get_single_add_to_cart_link($product_id);
-		
-		if ( $product->get_type() == 'simple' ) {
-			// return '<a class="qcfw_single_buy_now_button single_add_to_cart_button button" href="'. $link .'">'. $label .'</a>';
+        if ($product && $product->get_type() !== 'external') {
+            return '<button class="qcfw_single_buy_now_button single_add_to_cart_button button">'. $label .'</button>';
 		}
-        return '<a class="qcfw_single_buy_now_button single_add_to_cart_button button" href="'. $link .'">'. $label .'</a>';
-	}
-
-	public function get_single_add_to_cart_link($product_id) {
-		$product = wc_get_product($product_id);
-		$shop_add_to_cart_link = $product->add_to_cart_url();
-		return $shop_add_to_cart_link;
-	}
-	
-
-	public static function qcwf_checkout_single_buy_now_btn_redirect(){
-
-		$settings   									= Qcfw_Checkout_Settings::get_settings();
-		$qcwf_checkout_single_buy_now_btn_redirect_url 	= isset( $settings['qcwf_checkout_single_buy_now_btn_redirect_url'] ) ? $settings['qcwf_checkout_single_buy_now_btn_redirect_url'] : '';
-
-		if($qcwf_checkout_single_buy_now_btn_redirect_url == 'checkout'){
-			$checkout = wc_get_checkout_url();
-		}else{
-			$checkout = wc_get_cart_url();
-		}
-
-		return $checkout;
 	}
 
 }

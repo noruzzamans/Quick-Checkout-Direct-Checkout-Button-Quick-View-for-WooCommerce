@@ -58,6 +58,49 @@
 					console.log('Error retrieving product details.');
 				}
 			});
+			
 		});
+
+		/**
+		 * This script handles the click event for elements with the class 'qcfw_single_buy_now_button'.
+		 * It constructs a URL for adding a product to the cart and redirects the user to the appropriate page.
+		 */
+		$(document).on('click', '.qcfw_single_buy_now_button', function (e) {
+			e.preventDefault();
+			e.stopPropagation();
+		
+			const qcfw_button = $(this);
+			const $form = qcfw_button.closest('form.cart');
+			const product_id = $form.find('[name=add-to-cart]').val() || 0;
+			const variation_id = $form.find('input[name=variation_id]').val();
+			let params = $form.serialize().replace(/\%5B%5D/g, '[]') || '';
+		
+			if (qcfw_button.is('.disabled')) {
+				return;
+			}
+		
+			if (typeof variation_id !== 'undefined' && variation_id === 0) {
+				return false;
+			}
+		
+			if (params) {
+				params = '&' + params;
+			}
+		
+			let href = qcfw_button.attr('data-href') || '';
+		
+			if (href.indexOf('?') !== -1) {
+				href += '&add-to-cart=' + product_id + params;
+			} else {
+				href += '?add-to-cart=' + product_id + params;
+			}
+		
+			if (href !== 'undefined') {
+				document.location.href = href;
+			}
+		
+			return false;
+		});
+		
 	});
 })(jQuery);
