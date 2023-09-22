@@ -61,7 +61,6 @@ Here are some of our amazing plugins that you can use to boost your WordPress we
 
 [Copy to Clipboard for WordPress](https://wordpress.org/plugins/copy-to-clipboard-for-wp/): Copy to Clipboard for WordPress is a powerful and user-friendly plugin designed to enhance the copy-and-paste functionality on your WordPress website.
 
-[Submit Ticket](https://boomdevs.com/forums/forum/wordpress-table-of-contents/)
 == Installation ==
 
 There is no prerequisites for installing **Quick Checkout for WooCommerce**. You can follow the steps below to complete the installation.
@@ -114,10 +113,6 @@ Yes, You can remove the checkout policy through the plugin settings.
 
 = Can I Remove checkout terms and conditions? =
 Yes, You can remove the checkout terms and conditions through the plugin settings.
-
-== Support ==
-
-If you have any questions, please email us at **[noruzzamanrubel@gmail.com](mailto:noruzzamanrubel@gmail.com)**
 
 == Screenshots ==
 
