@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require_once QCFW_CHECKOUT_PATH . 'includes/backend/class-qcfw-checkout-buy-now-setting.php';
+require_once QCFW_CHECKOUT_PATH . 'includes/backend/class-qcfw-checkout-settings.php';
 
 
 class Qcfw_Checkout_Buy_Now {
@@ -15,97 +15,93 @@ class Qcfw_Checkout_Buy_Now {
 	protected static $instance;
 
 	/**
-     * Register plugin frontend.
+     * Returns the single instance of the class.
+     *
+     * @return Qcfw_Checkout_Buy_Now Singleton instance of the class.
      */
-	public function register_qcfw_checkout_buy_now(){
-		add_action( 'woocommerce_after_shop_loop_item', array( $this, 'qcwf_checkout_shop_buy_now_before_btn' ), 10 );
-		add_action( 'woocommerce_after_shop_loop_item', array( $this, 'qcwf_checkout_shop_buy_now_after_btn' ), 11 );
+    public static function get_instance() {
+        if ( is_null( self::$instance ) ) {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
+    }
+
+    /**
+     * Class Constructor.
+     *
+     * This constructor initializes the Qcfw_Checkout_Settings and determines the placement
+     * of the quick view button on WooCommerce shop loop items based on user settings. The placement can
+     * be configured to display the button over the product image, after the title, after the rating,
+     * after the price, before the add to cart button, or after the add to cart button.
+     *
+     * @since 1.0.0
+     */
+    public function __construct() {
+        /** Get the user settings for Quick Checkout for WooCommerce. */
+        $settings       = Qcfw_Checkout_Settings::get_settings();
+
+        /** Determine the position of the quick view button based on user settings. */
+        $qcfw_checkout_shop_buy_now_btn_position  = isset($settings['qcfw_checkout_shop_buy_now_btn_position']) ? $settings['qcfw_checkout_shop_buy_now_btn_position'] : '';
+        
+        if ( ! empty( $qcfw_checkout_shop_buy_now_btn_position ) ) {
+            /** Based on the selected position, add the appropriate action hook to display the button. */
+            switch ($qcfw_checkout_shop_buy_now_btn_position) {
+                case 'over_product_image':
+                    add_action( 'woocommerce_before_shop_loop_item_title', [ $this, 'add_qcfw_button' ], 9 );
+                    break;
+                case 'over_product_image_hover':
+                    add_action( 'woocommerce_before_shop_loop_item_title', [ $this, 'add_qcfw_button' ], 10);
+                    break;
+                case 'after_title':
+                    add_action( 'woocommerce_shop_loop_item_title', [ $this, 'add_qcfw_button' ], 11 );
+                    break;
+                case 'after_rating':
+                    add_action( 'woocommerce_after_shop_loop_item_title', [ $this, 'add_qcfw_button' ], 6 );
+                    break;
+                case 'after_price':
+                    add_action( 'woocommerce_after_shop_loop_item_title', [ $this, 'add_qcfw_button' ], 11 );
+                    break;
+                case 'before_add_to_cart':
+                    add_action( 'woocommerce_after_shop_loop_item', [ $this, 'add_qcfw_button' ], 9 );
+                    break;
+                case 'after_add_to_cart':
+                    add_action( 'woocommerce_after_shop_loop_item', [ $this, 'add_qcfw_button' ], 11 );
+                    break;
+                default:
+                    add_action( 'woocommerce_after_shop_loop_item', [ $this, 'add_qcfw_button' ], 11 );
+                    break;
+            }
+        }   
+
 	}
+
+	/**
+     * Adds the quick checkout button if enabled by user settings.
+     */
+    public function add_qcfw_button(){
+        /** Get the user settings for qcfw. */
+        $settings       = Qcfw_Checkout_Settings::get_settings();
+        $qcfw_checkout_shop_buy_now_btn_switch    = isset( $settings['qcfw_checkout_shop_buy_now_btn_switch'] ) ? $settings['qcfw_checkout_shop_buy_now_btn_switch'] : false;
+        if($qcfw_checkout_shop_buy_now_btn_switch){
+            echo  $this->qcfw_shop_buy_now_button_html();
+        }
+
+    }
 
 	public function qcfw_shop_buy_now_button_html() {
 
-		$label = get_option( 'qcwf_checkout_shop_buy_now_btn_label', 'Buy Now' );
-		$label_bg_color = get_option( 'qcwf_checkout_shop_buy_now_btn_bg_color', '#1c61e7' );
-		$label_bg_hover_color = get_option( 'qcwf_checkout_shop_buy_now_btn_bg_hover_color', '#eb7a61' );
-		$label_text_color = get_option( 'qcwf_checkout_shop_buy_now_btn_text_color', '#ffffff' );
-		$label_text_hover_color = get_option( 'qcwf_checkout_shop_buy_now_btn_text_hover_color', '#ffffff' );
-		?>
-			<style>
-				a.qcfw_shop_buy_now_button {
-					background-color: <?php echo esc_html($label_bg_color); ?> !important;
-					color: <?php echo esc_html($label_text_color); ?> !important;
-				}
-				a.qcfw_shop_buy_now_button:hover {
-					background-color: <?php echo esc_html($label_bg_hover_color); ?> !important;
-					color: <?php echo esc_html($label_text_hover_color); ?> !important;
-				}
-			</style>
-		<?php
-		
+		$settings   = Qcfw_Checkout_Settings::get_settings();
+		$label 		= isset( $settings['qcfw_checkout_shop_buy_now_btn_label'] ) ? $settings['qcfw_checkout_shop_buy_now_btn_label'] : '';
+
 		global $product;
 		$product_id = $product->get_id();
-		$link = $this->get_shop_add_to_cart_link($product_id);
-		
-		if ( $product->get_type() == 'simple' ) {
-			return '<a class="qcfw_shop_buy_now_button button" href="'. $link .'">'. $label .'</a>';
+        if ($product && $product->get_type() !== 'external') {
+            return '<button id="qcfw_shop_buy_now_button" class="qcfw_shop_buy_now_button button " data-product-id="'. $product_id .'">'. $label .'</button>';
 		}
-	}
-
-	public function get_shop_add_to_cart_link($product_id) {
-		$product = wc_get_product($product_id);
-		$shop_add_to_cart_link = $product->add_to_cart_url() . '&qcfw_checkout=1';
-		return $shop_add_to_cart_link;
-	}
-
-	public function qcwf_checkout_shop_buy_now_before_btn() {
-		$shop_buy_now_before_btn_position = get_option( 'qcwf_checkout_shop_buy_now_btn_position', 'after_btn' );
-		$shop_buy_now_switch_url = get_option( 'qcwf_checkout_shop_buy_now_btn_switch', 'no' );
-	
-		switch ($shop_buy_now_switch_url) {
-			case 'yes':
-				switch ($shop_buy_now_before_btn_position) {
-					case 'before_btn':
-						echo $this->qcfw_shop_buy_now_button_html();
-						break;
-				}
-				break;
-		}
-	}
-	
-	public function qcwf_checkout_shop_buy_now_after_btn() {
-		$shop_buy_now_after_btn_position = get_option( 'qcwf_checkout_shop_buy_now_btn_position', 'after_btn' );
-		$shop_buy_now_switch_url = get_option( 'qcwf_checkout_shop_buy_now_btn_switch', 'no' );
-	
-		switch ($shop_buy_now_switch_url) {
-			case 'yes':
-				switch ($shop_buy_now_after_btn_position) {
-					case 'after_btn':
-						echo $this->qcfw_shop_buy_now_button_html();
-						break;
-				}
-				break;
-		}
-	}
-
-	public static function qcwf_checkout_shop_buy_now_btn_redirect(){
-		$redirect_shop_buy_now_btn_url = get_option( 'qcwf_checkout_shop_buy_now_btn_redirect_url', 'checkout' );
-		if($redirect_shop_buy_now_btn_url == 'checkout'){
-			$checkout = wc_get_checkout_url();
-		}else{
-			$checkout = wc_get_cart_url();
-		}
-
-		return $checkout;
-	}
-	
-	/**
-	 * Instance
-	 */
-	public static function instance() {
-		if ( ! isset( self::$instance ) ) {
-			self::$instance = new self();
-		}
-		return self::$instance;
 	}
 
 }
+
+/** Initialize the class instance. */
+Qcfw_Checkout_Buy_Now::get_instance();

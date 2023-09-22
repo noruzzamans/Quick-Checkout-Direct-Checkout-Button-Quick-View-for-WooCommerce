@@ -1,9 +1,9 @@
-=== Quick Checkout, Direct Checkout Button for WooCommerce ===
+=== Quick Checkout, Direct Checkout Button, Quick View for WooCommerce ===
 Contributors: noruzzaman
-Tags: checkout, quick checkout, direct checkout, Add to Cart, woocommerce
+Tags: checkout, quick checkout, direct checkout, quick view, Add to Cart, woocommerce
 Requires at least: 5.0
 Tested up to: 6.3
-Stable tag: 1.3.0
+Stable tag: 1.4.0
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -76,13 +76,13 @@ There is no prerequisites for installing **Quick Checkout for WooCommerce**. You
 Yes, it’s completely free.
 
 = Where can I find the plugin settings? =
-To access the plugin settings, navigate to the left side of the dashboard and click on "WooCommerce." From there, select "Quick checkout."
+To access the plugin settings, navigate to the left side of the dashboard and click on "Quick checkout."
 
 = How can I enable the redirect feature? =
-To activate the redirect functionality, simply install the plugin and activate it. Once activated, Once activated, go to WooCommerce > Quick Checkout, Navigate to General Settings, Locate the "Global Redirect Add to Cart URL" option, Choose "Checkout" from the available options. By following these steps, the plugin will be configured to redirect users to the checkout page after adding items to their cart.
+To activate the redirect functionality, simply install the plugin and activate it. Once activated, Once activated, go to Quick Checkout, Navigate to General Settings, Locate the "Global Redirect Add to Cart URL" option, Choose "Checkout" from the available options. By following these steps, the plugin will be configured to redirect users to the checkout page after adding items to their cart.
 
 = How can I disable the redirect feature? =
-Go to WooCommerce > Quick Checkout, Navigate to General Settings, Locate the "Global Redirect Add to Cart URL" option, Choose "No" from the available options.
+Go to Quick Checkout, Navigate to General Settings, Locate the "Global Redirect Add to Cart URL" option, Choose "No" from the available options.
 
 = Does it work on the Archive page? =
 Yes, our plugin is designed to function with all the "Add to Cart" buttons, including those on the Archive page.
@@ -102,9 +102,6 @@ Yes, you can customize the style of the "Quick Purchase" or "Buy Now" button thr
 = can I disable "Quick Purchase" or "Buy Now" button? =
 Yes, you can disable the "Quick Purchase" or "Buy Now" button if you no longer want it to be displayed on your website. This can be done through the plugin settings, where you will have the option to enable or disable the button functionality as needed.
 
-= "Quick Purchase" or "Buy Now" button is not working on variable product =
-Currently, the "Quick Purchase" or "Buy Now" button does not work with variable products. However, we are actively working on adding support for variable products, and this feature will be available soon. We appreciate your patience and understanding as we strive to enhance the functionality of our plugin.
-
 = Should the billing field be Removed from the checkout form? =
 Yes, you have the option to remove the following fields from the checkout form: First Name, Last Name, Company, Address 1, Address 2, Phone, City, Postcode, State and Country.
 
@@ -120,6 +117,12 @@ Yes, You can remove the checkout terms and conditions through the plugin setting
 == Screenshots ==
 
 == Changelog ==
+
+= 1.4.0 =
+*New: New Admin Dashboard
+*New: Quick View Modal
+*New: Multiple button style
+*New: support for WooCommerce 8.1.1
 
 = 1.3.0 =
 *New: support for WooCommerce 8.0.1

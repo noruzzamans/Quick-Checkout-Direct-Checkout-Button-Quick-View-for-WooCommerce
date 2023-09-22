@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require_once QCFW_CHECKOUT_PATH . 'includes/backend/class-qcfw-checkout-page-setting.php';
+require_once QCFW_CHECKOUT_PATH . 'includes/backend/class-qcfw-checkout-settings.php';
 
 
 class Qcfw_Checkout_Page {
@@ -15,22 +15,33 @@ class Qcfw_Checkout_Page {
 	protected static $instance;
 
 	/**
-     * Register plugin frontend.
+     * Returns the single instance of the class.
+     *
+     * @return Qcfw_Checkout_Buy_Now Singleton instance of the class.
      */
-	public function register_qcfw_checkout_page(){
-		add_filter( 'woocommerce_checkout_fields', array( $this, 'qcwf_checkout_rander_remove_fields' ));
-		add_filter( 'woocommerce_enable_order_notes_field', array( $this, 'qcwf_checkout_rander_remove_order_notes' ) );
-		add_filter( 'woocommerce_checkout_terms_and_conditions', array( $this, 'qcwf_checkout_rander_remove_policy' ) );
-		add_action( 'woocommerce_before_checkout_form', array( $this, 'qcwf_checkout_rander_remove_coupon' ), 9 );
+    public static function get_instance() {
+        if ( is_null( self::$instance ) ) {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
+    }
+
+	public function __construct() { 
+		add_action( 'woocommerce_before_checkout_form', array( $this, 'qcfw_checkout_rander_remove_coupon' ), 9 );
+		add_filter( 'woocommerce_checkout_fields', array( $this, 'qcfw_checkout_rander_remove_fields' ));
+		add_filter( 'woocommerce_enable_order_notes_field', array( $this, 'qcfw_checkout_rander_remove_order_notes' ) );
+		add_filter( 'woocommerce_checkout_terms_and_conditions', array( $this, 'qcfw_checkout_rander_remove_policy' ) );
 	}
 
 	/**
      * Removed checkout coupon
      */
-	public function qcwf_checkout_rander_remove_coupon() {
-		$qcwf_checkout_remove_coupon_form = get_option('qcwf_checkout_remove_coupon_form', 'no');
-		switch ($qcwf_checkout_remove_coupon_form) {
-			case 'yes':
+	public function qcfw_checkout_rander_remove_coupon() {
+		$settings   					= Qcfw_Checkout_Settings::get_settings();
+		$qcfw_checkout_remove_coupon_form 	= isset( $settings['qcfw_checkout_remove_coupon_form'] ) ? $settings['qcfw_checkout_remove_coupon_form'] : '';
+		switch ($qcfw_checkout_remove_coupon_form) {
+			case '1':
 				remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
 				break;
 			default:
@@ -43,17 +54,18 @@ class Qcfw_Checkout_Page {
 	/**
      * Removed checkout fields
      */
-	public function qcwf_checkout_rander_remove_fields($fields) {
-		$qcwf_checkout_remove_fields = get_option('qcwf_checkout_remove_fields');
+	public function qcfw_checkout_rander_remove_fields($fields) {
+		$settings   					= Qcfw_Checkout_Settings::get_settings();
+		$qcfw_checkout_remove_fields 	= isset( $settings['qcfw_checkout_remove_fields'] ) ? $settings['qcfw_checkout_remove_fields'] : '';
 	
-		if ($qcwf_checkout_remove_fields) {
+		if ($qcfw_checkout_remove_fields) {
 			$billing_fields_to_remove = array_map(function ($key) {
 				return 'billing_' . $key;
-			}, $qcwf_checkout_remove_fields);
+			}, $qcfw_checkout_remove_fields);
 	
 			$shipping_fields_to_remove = array_map(function ($key) {
 				return 'shipping_' . $key;
-			}, $qcwf_checkout_remove_fields);
+			}, $qcfw_checkout_remove_fields);
 	
 			$fields['billing'] = array_diff_key($fields['billing'], array_flip($billing_fields_to_remove));
 			$fields['shipping'] = array_diff_key($fields['shipping'], array_flip($shipping_fields_to_remove));
@@ -65,11 +77,12 @@ class Qcfw_Checkout_Page {
 	/**
      * Removed checkout Order notes
      */
-	public function qcwf_checkout_rander_remove_order_notes($string) {
-		$qcwf_checkout_remove_order_notes = get_option('qcwf_checkout_remove_order_notes', 'no');
+	public function qcfw_checkout_rander_remove_order_notes($string) {
+		$settings   						= Qcfw_Checkout_Settings::get_settings();
+		$qcfw_checkout_remove_order_notes 	= isset( $settings['qcfw_checkout_remove_order_notes'] ) ? $settings['qcfw_checkout_remove_order_notes'] : '';
 	
-		switch ($qcwf_checkout_remove_order_notes) {
-			case 'yes':
+		switch ($qcfw_checkout_remove_order_notes) {
+			case '1':
 				$string = false;
 				break;
 			default:
@@ -83,12 +96,13 @@ class Qcfw_Checkout_Page {
 	/**
      * Removed checkout policy and trams and conditions
      */
-	public function qcwf_checkout_rander_remove_policy() {
-		$qcwf_checkout_remove_policy = get_option('qcwf_checkout_remove_policy', 'no');
-		$qcwf_checkout_remove_terms = get_option('qcwf_checkout_remove_terms', 'no');
+	public function qcfw_checkout_rander_remove_policy() {
+		$settings   						= Qcfw_Checkout_Settings::get_settings();
+		$qcfw_checkout_remove_policy 	= isset( $settings['qcfw_checkout_remove_policy'] ) ? $settings['qcfw_checkout_remove_policy'] : '';
+		$qcfw_checkout_remove_terms 	= isset( $settings['qcfw_checkout_remove_terms'] ) ? $settings['qcfw_checkout_remove_terms'] : '';
 	
-		switch ($qcwf_checkout_remove_policy) {
-			case 'yes':
+		switch ($qcfw_checkout_remove_policy) {
+			case '1':
 				remove_action('woocommerce_checkout_terms_and_conditions', 'wc_checkout_privacy_policy_text', 20);
 				break;
 			default:
@@ -96,8 +110,8 @@ class Qcfw_Checkout_Page {
 				break;
 		}
 	
-		switch ($qcwf_checkout_remove_terms) {
-			case 'yes':
+		switch ($qcfw_checkout_remove_terms) {
+			case '1':
 				remove_action('woocommerce_checkout_terms_and_conditions', 'wc_terms_and_conditions_page_content', 30);
 				break;
 			default:
@@ -105,15 +119,7 @@ class Qcfw_Checkout_Page {
 				break;
 		}
 	}
-	
-	/**
-	 * Instance
-	 */
-	public static function instance() {
-		if ( ! isset( self::$instance ) ) {
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
 
 }
+/** Initialize the class instance. */
+Qcfw_Checkout_Page::get_instance();
