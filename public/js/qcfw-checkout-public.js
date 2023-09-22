@@ -3,6 +3,17 @@
 
 	$(document).ready(function() {
 
+		/** Check if qcfw_btn is defined and has an icon property */
+		if (typeof qcfw_btn !== 'undefined' && qcfw_btn.icon) {
+			let iconClass = qcfw_btn.icon;
+			let iconElement = $('<i class="' + iconClass + '"></i>');
+			if (qcfw_btn.icon_position === 'before') {
+				$('.qcfw_shop_buy_now_button').prepend(iconElement);
+			} else {
+				$('.qcfw_shop_buy_now_button').append(iconElement);
+			}
+		}
+
 		/** Click event handler for the quick view button */
 		$('.qcfw_shop_buy_now_button').on('click', function(e) {
 			e.preventDefault();
@@ -35,7 +46,7 @@
 								src: response
 							},
 							type: 'inline',
-							mainClass: 'mfp-ewqv',
+							mainClass: 'mfp-qcfw',
 							closeBtnInside: true,
 							closeOnBgClick: true,
 							showCloseBtn: true,
@@ -46,6 +57,23 @@
 							var form_variation = $('.qcfw-checkout-product-modal').find('.variations_form');
 							form_variation.each(function () {
 								$(this).wc_variation_form();
+							});
+						}
+
+						/** Check if there are gallery images */
+						let hasGalleryImages = $('#qcfw-checkout-image-slider .qcfw-checkout-product-image').length > 1;
+						let left_icon = qcfw_slidrt_icon.left;
+						let right_icon = qcfw_slidrt_icon.right;
+						
+						/** Initialize Slick slider only if there are gallery images */
+						if (hasGalleryImages) {
+							$('#qcfw-checkout-image-slider').slick({
+								dots: true,
+								infinite: true,
+								slidesToShow: 1,
+								slidesToScroll: 1,
+								prevArrow: `<button type="button" class="slick-prev"><i class="${left_icon}"></i></button>`,
+								nextArrow: `<button type="button" class="slick-next"><i class="${right_icon}"></i></button>`
 							});
 						}
 

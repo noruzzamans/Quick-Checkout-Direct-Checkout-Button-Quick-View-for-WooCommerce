@@ -42,11 +42,11 @@ class Qcfw_Checkout_Single_Buy_Now {
         $settings       = Qcfw_Checkout_Settings::get_settings();
 
         /** Determine the position of the quick view button based on user settings. */
-        $qcwf_checkout_single_buy_now_btn_position  = isset($settings['qcwf_checkout_single_buy_now_btn_position']) ? $settings['qcwf_checkout_single_buy_now_btn_position'] : '';
+        $qcfw_checkout_single_buy_now_btn_position  = isset($settings['qcfw_checkout_single_buy_now_btn_position']) ? $settings['qcfw_checkout_single_buy_now_btn_position'] : '';
         
-        if ( ! empty( $qcwf_checkout_single_buy_now_btn_position ) ) {
+        if ( ! empty( $qcfw_checkout_single_buy_now_btn_position ) ) {
             /** Based on the selected position, add the appropriate action hook to display the button. */
-            switch ($qcwf_checkout_single_buy_now_btn_position) {
+            switch ($qcfw_checkout_single_buy_now_btn_position) {
                 case 'before_add_to_cart':
                     add_action( 'woocommerce_before_add_to_cart_button', [ $this, 'add_single_qcfw_button' ], 10 );
                     break;
@@ -67,8 +67,8 @@ class Qcfw_Checkout_Single_Buy_Now {
     public function add_single_qcfw_button(){
         /** Get the user settings for qcfw. */
         $settings       = Qcfw_Checkout_Settings::get_settings();
-        $qcwf_checkout_single_buy_now_btn_switch    = isset( $settings['qcwf_checkout_single_buy_now_btn_switch'] ) ? $settings['qcwf_checkout_single_buy_now_btn_switch'] : false;
-        if($qcwf_checkout_single_buy_now_btn_switch){
+        $qcfw_checkout_single_buy_now_btn_switch    = isset( $settings['qcfw_checkout_single_buy_now_btn_switch'] ) ? $settings['qcfw_checkout_single_buy_now_btn_switch'] : false;
+        if($qcfw_checkout_single_buy_now_btn_switch){
             echo  $this->qcfw_single_buy_now_button_html();
         }
 
@@ -76,7 +76,7 @@ class Qcfw_Checkout_Single_Buy_Now {
 
 	public function qcfw_single_buy_now_button_html() {
 		$settings   = Qcfw_Checkout_Settings::get_settings();
-		$label 		= isset( $settings['qcwf_checkout_single_buy_now_btn_label'] ) ? $settings['qcwf_checkout_single_buy_now_btn_label'] : '';
+		$label 		= isset( $settings['qcfw_checkout_single_buy_now_btn_label'] ) ? $settings['qcfw_checkout_single_buy_now_btn_label'] : '';
         
 		global $product;
         if ($product && $product->get_type() !== 'external') {

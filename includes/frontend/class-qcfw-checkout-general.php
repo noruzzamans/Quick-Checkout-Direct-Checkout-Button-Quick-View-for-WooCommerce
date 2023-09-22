@@ -28,14 +28,14 @@ class Qcfw_Checkout_General {
     }
 
 	public function __construct() {
-		add_filter( 'woocommerce_add_to_cart_redirect', array( $this, 'qcwf_checkout_add_to_cart_redirect' ) );
-		add_filter( 'woocommerce_get_script_data', array($this, 'qcwf_checkout_get_script_data_filter'), 10, 2 );
+		add_filter( 'woocommerce_add_to_cart_redirect', array( $this, 'qcfw_checkout_add_to_cart_redirect' ) );
+		add_filter( 'woocommerce_get_script_data', array($this, 'qcfw_checkout_get_script_data_filter'), 10, 2 );
 	}
 
 	/**
 	 * Add to cart redirect
 	 */
-	public function qcwf_checkout_add_to_cart_redirect() {
+	public function qcfw_checkout_add_to_cart_redirect() {
 		// Global Redirect setting
 		$settings = Qcfw_Checkout_Settings::get_settings();
 		$qcfw_global_redirect_options = isset($settings['qcfw_global_redirect_options']) ? $settings['qcfw_global_redirect_options'] : '';
@@ -52,7 +52,7 @@ class Qcfw_Checkout_General {
 	}
 
 
-	public function qcwf_checkout_get_script_data_filter($params, $handle) {
+	public function qcfw_checkout_get_script_data_filter($params, $handle) {
 
 		$settings       								= Qcfw_Checkout_Settings::get_settings();
 		$qcfw_global_redirect_options 					= isset( $settings['qcfw_global_redirect_options'] ) ? $settings['qcfw_global_redirect_options'] : '';
