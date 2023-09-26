@@ -209,9 +209,9 @@ class Qcfw_Checkout_Public {
 					left: 	<?php echo $qcfw_btn_align_position_top_left; ?>px !important;
 					right: 	<?php echo $qcfw_btn_align_position_top_right; ?>px !important;
 				}
-				.woocommerce-LoopProduct-link:hover .qcfw_shop_buy_now_button {
+				.woocommerce-LoopProduct-link:hover .qcfw_shop_buy_now_button, .product a:hover .qcfw_shop_buy_now_button {
 					opacity: 1;
-				} 
+				}
 			<?php endif; ?>
 			<?php if($qcfw_btn_icon_select == 'before'): ?>
 				.qcfw_shop_buy_now_button i {

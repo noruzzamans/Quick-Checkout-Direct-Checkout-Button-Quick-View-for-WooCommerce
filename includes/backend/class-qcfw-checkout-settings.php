@@ -844,9 +844,9 @@ class Qcfw_Checkout_Settings {
                         'output_important'  => true,
                         'default'           => array(
                             'top'    => '0',
-                            'right'  => '0',
+                            'right'  => '5',
                             'bottom' => '0',
-                            'left'   => '0',
+                            'left'   => '5',
                             'unit'   => 'px',
                         ),
                     ),
@@ -933,7 +933,7 @@ class Qcfw_Checkout_Settings {
                 array(
                     'id'            => 'qcfw_checkout_single_buy_now_btn_switch',
                     'type'          => 'switcher',
-                    'title'         => esc_html__( 'Button switch', 'qcfw-checkout' ),
+                    'title'         => esc_html__( 'Enable Buy Now Button', 'qcfw-checkout' ),
                     'default'       => false,
                 ),
                 array(
