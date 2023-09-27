@@ -386,9 +386,9 @@ class Qcfw_Checkout_Settings {
                     'output_important'  => true,
                     'default'           => array(
                         'top'    => '16',
-                        'right'  => '0',
+                        'right'  => '5',
                         'bottom' => '0',
-                        'left'   => '0',
+                        'left'   => '5',
                         'unit'   => 'px',
                     ),
                 ),
