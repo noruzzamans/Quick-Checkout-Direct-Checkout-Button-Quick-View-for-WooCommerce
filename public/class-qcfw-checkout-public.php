@@ -324,7 +324,7 @@ class Qcfw_Checkout_Public {
 		wp_enqueue_script( $this->plugin_name.'-magnific', plugin_dir_url( __FILE__ ) . 'js/qcfw-checkout-quick-view-public-magnific.js', array( 'jquery' ), $this->version, false );
 
 		/** Enqueue the main plugin JavaScript file for the public-facing side of the site.*/
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/qcfw-checkout-public-min.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/qcfw-checkout-public.js', array( 'jquery' ), $this->version, false );
 
 		/** Localize the main script with essential data. */
 		wp_localize_script($this->plugin_name, 'qcfw_checkout_quick_view', array(
