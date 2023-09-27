@@ -84,6 +84,7 @@ class Qcfw_Checkout_Public {
 		$qcfw_modal_z_index					= isset($settings['qcfw_modal_z_index']) ? $settings['qcfw_modal_z_index'] : '';
 		$qcfw_close_btn_switch				= isset($settings['qcfw_close_btn_switch']) ? $settings['qcfw_close_btn_switch'] : '';
 		$qcfw_review_link_switch			= isset($settings['qcfw_review_link_switch']) ? $settings['qcfw_review_link_switch'] : '';
+		$qcfw_modal_buy_now_btn_switch      = isset( $settings['qcfw_modal_buy_now_btn_switch'] ) ? $settings['qcfw_modal_buy_now_btn_switch'] : true;
 
 		/** Retrieve modal slider settings */
 		$qcfw_slider_dot_switch				= isset($settings['qcfw_slider_dot_switch']) ? $settings['qcfw_slider_dot_switch'] : '';
@@ -114,6 +115,9 @@ class Qcfw_Checkout_Public {
 		/** Retrieve loading animation settings. */
 		$qcfw_loading_switch 				= isset($settings['qcfw_loading_switch']) ? $settings['qcfw_loading_switch'] : '';
 
+		/** Retrieve Single page buy now button switch settings. */
+		$qcfw_single_buy_now_btn_switch    	= isset( $settings['qcfw_checkout_single_buy_now_btn_switch'] ) ? $settings['qcfw_checkout_single_buy_now_btn_switch'] : false;
+
 		?>
 
 		<style>
@@ -121,9 +125,11 @@ class Qcfw_Checkout_Public {
 			.qcfw_shop_buy_now_button i {
 				font-size: <?php echo $qcfw_btn_icon_font_size; ?>px !important;
 			}
+
 			.qcfw-checkout-summary-content::-webkit-scrollbar-thumb {
 				background: <?php echo $qcfw_scrollbar_bg; ?>!important;
 			}
+
 			.qcfw_shop_buy_now_button {
 				transition: ease-in-out .5s !important;
 				border-top-left-radius:     <?php echo $qcfw_btn_border_radius_top; ?>px!important;
@@ -131,6 +137,7 @@ class Qcfw_Checkout_Public {
 				border-bottom-right-radius: <?php echo $qcfw_btn_border_radius_bottom; ?>px!important;
 				border-bottom-left-radius:  <?php echo $qcfw_btn_border_radius_left; ?>px!important;
 			}
+
 			.qcfw-checkout-summary-content .cart .qcfw_single_buy_now_button {
 				transition: ease-in-out .5s !important;
 				border-top-left-radius:     <?php echo $qcfw_cart_btn_border_radius_top; ?>px!important;
@@ -138,6 +145,7 @@ class Qcfw_Checkout_Public {
 				border-bottom-right-radius: <?php echo $qcfw__cart_btn_border_radius_bottom; ?>px!important;
 				border-bottom-left-radius:  <?php echo $qcfw_cart_btn_border_radius_left; ?>px!important;
 			}
+
 			.qcfw_single_buy_now_button {
 				transition: ease-in-out .5s !important;
 				border-top-left-radius:     <?php echo $qcfw_single_btn_border_radius_top; ?>px!important;
@@ -149,21 +157,26 @@ class Qcfw_Checkout_Public {
 			.qcfw-checkout-product-modal {
 				max-width: <?php echo $qcfw_modal_width ; ?>px !important;
 			}
+
 			.qcfw-checkout-product-modal {
 				max-height: <?php echo $qcfw_modal_height ; ?>px !important;
 			}
+
 			.qcfw-checkout-product-modal .slick-arrow i {
 				font-size: <?php echo $qcfw_slider_btn_icon_size ; ?>px !important;
 			}
+
 			.qcfw-checkout-product-modal .slick-arrow {
 				color: <?php echo $qcfw_slider_btn_icon_color ; ?> !important;
 				background-color: <?php echo $qcfw_slider_btn_icon_bg_color ; ?> !important;
 				transition: ease-in-out .5s !important;
 			}
+
 			.qcfw-checkout-product-modal .slick-arrow:hover {
 				color: <?php echo $qcfw_slider_btn_icon_hover_color ; ?> !important;
 				background-color: <?php echo $qcfw_slider_btn_icon_bg_hover_color ; ?> !important;
 			}
+
 			<?php if($qcfw_icon_switch && $qcfw_icon_only_switch == '1' && $qcfw_icon_btn_style == 'square'): ?>
 				button.qcfw_shop_buy_now_button {
 					font-size: 0px !important;
@@ -173,6 +186,7 @@ class Qcfw_Checkout_Public {
 					padding: 0 !important;
 				}
 			<?php endif; ?>
+
 			<?php if($qcfw_icon_switch && $qcfw_icon_only_switch == '1' && $qcfw_icon_btn_style == 'round'): ?>
 				button.qcfw_shop_buy_now_button {
 					font-size: 0px !important;
@@ -183,6 +197,7 @@ class Qcfw_Checkout_Public {
 					border-radius: 50% !important;
 				}
 			<?php endif; ?>
+
 			<?php if($qcfw_icon_switch && $qcfw_icon_only_switch == '1' && $qcfw_icon_btn_style == 'rounded_square'): ?>
 				button.qcfw_shop_buy_now_button {
 					font-size: 0px !important;
@@ -193,6 +208,7 @@ class Qcfw_Checkout_Public {
 					border-radius: 20% !important;
 				}
 			<?php endif; ?>
+
 			<?php if($qcfw_btn_position == 'over_product_image'): ?>
 				button.qcfw_shop_buy_now_button {
 					position: absolute !important;
@@ -201,6 +217,7 @@ class Qcfw_Checkout_Public {
 					right: 	<?php echo $qcfw_btn_align_position_top_right; ?>px !important;
 				}
 			<?php endif; ?>
+
 			<?php if($qcfw_btn_position == 'over_product_image_hover'): ?>
 				button.qcfw_shop_buy_now_button {
 					position: absolute !important;
@@ -213,46 +230,67 @@ class Qcfw_Checkout_Public {
 					opacity: 1;
 				}
 			<?php endif; ?>
+
 			<?php if($qcfw_btn_icon_select == 'before'): ?>
 				.qcfw_shop_buy_now_button i {
 					margin-right: <?php echo $qcfw_btn_icon_margin_right ; ?>px;
 				}
 			<?php endif; ?>
+
 			<?php if($qcfw_btn_icon_select == 'after'): ?>
 				.qcfw_shop_buy_now_button i {
 					margin-left: <?php echo $qcfw_btn_icon_margin_left ; ?>px;
 				}
 			<?php endif; ?>
+
 			<?php if(array_key_exists('qcfw_modal_z_index', $settings)): ?>
 				.mfp-bg.mfp-qcfw {
-					z-index: <?php echo esc_html($settings['qcfw_modal_z_index']);?>!important;
+					z-index: <?php echo $qcfw_modal_z_index; ?>!important;
 				}
 			<?php endif; ?>
+
 			<?php if($qcfw_close_btn_switch == '0') : ?>
 				.qcfw-checkout-product-modal .mfp-close {
 					display: none;
 				}
 			<?php endif; ?>	
+
 			<?php if($qcfw_review_link_switch == '0') : ?>
 				.qcfw-checkout-summary-content .woocommerce-product-rating .woocommerce-review-link {
 					display: none;
 				}
+			<?php endif; ?>
+
+			<?php if($qcfw_modal_buy_now_btn_switch == '0') : ?>
+				.qcfw-checkout-product-modal .qcfw_single_buy_now_button {
+					display: none !important;
+				}
+			<?php endif; ?>
+
+			<?php if($qcfw_single_buy_now_btn_switch == '0') : ?>
+				.single-product .qcfw_single_buy_now_button {
+					display: none !important;
+				}
 			<?php endif; ?>	
+
 			<?php if($qcfw_content_variation_description == '0') : ?>
 				.qcfw-checkout-summary-content .woocommerce-variation-description {
 					display: none;
 				}
 			<?php endif; ?>	
+
 			<?php if($qcfw_slider_dot_switch == '0') : ?>
 				.qcfw-checkout-product-modal .qcfw-checkout-product-images-slider .slick-dots {
 					display: none !important;
 				}
 			<?php endif; ?>
+
 			<?php if($qcfw_loading_switch == '0') : ?>
 				.loading-overlay .loading-text {
 					display: none !important;
 				}
 			<?php endif; ?>
+
         </style>
         <?php
 

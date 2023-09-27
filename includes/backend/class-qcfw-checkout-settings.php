@@ -484,6 +484,16 @@ class Qcfw_Checkout_Settings {
                 ),
                 array(
                     'type'              => 'subheading',
+                    'content'           => esc_html__( 'Buy Now Button', 'qcfw-checkout' ),
+                ),
+                array(
+                    'id'                    => 'qcfw_modal_buy_now_btn_switch',
+                        'type'              => 'switcher',
+                        'title'             => esc_html__( 'Enable Buy Now Button', 'qcfw-checkout' ),
+                        'default'           => true,
+                ),
+                array(
+                    'type'              => 'subheading',
                     'content'           => esc_html__( 'Close Button', 'qcfw-checkout' ),
                 ),
                 array(

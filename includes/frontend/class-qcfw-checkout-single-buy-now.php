@@ -66,11 +66,14 @@ class Qcfw_Checkout_Single_Buy_Now {
      */
     public function add_single_qcfw_button(){
         /** Get the user settings for qcfw. */
-        $settings       = Qcfw_Checkout_Settings::get_settings();
+        $settings                                   = Qcfw_Checkout_Settings::get_settings();
         $qcfw_checkout_single_buy_now_btn_switch    = isset( $settings['qcfw_checkout_single_buy_now_btn_switch'] ) ? $settings['qcfw_checkout_single_buy_now_btn_switch'] : false;
-        if($qcfw_checkout_single_buy_now_btn_switch){
+        $qcfw_modal_buy_now_btn_switch              = isset( $settings['qcfw_modal_buy_now_btn_switch'] ) ? $settings['qcfw_modal_buy_now_btn_switch'] : true;
+        
+        if($qcfw_checkout_single_buy_now_btn_switch || $qcfw_modal_buy_now_btn_switch){
             echo  $this->qcfw_single_buy_now_button_html();
         }
+        
 
     }
 
