@@ -1,3 +1,8 @@
+= 1.4.1 =
+Fix: plugin setting link
+Fix: some css issues
+Fix: other minor issues
+
 = 1.4.0 =
 *New: New Admin Dashboard
 *New: Quick View Modal
