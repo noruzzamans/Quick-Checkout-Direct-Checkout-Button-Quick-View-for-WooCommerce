@@ -26,9 +26,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 - **Reduced cart abandonment:** Addressing issues causing customers to abandon their shopping carts prematurely.
 - **Reduced checkout friction:** Minimizing obstacles or difficulties during the checkout process.
 - **Improved customer experience:** Enhancing overall satisfaction by refining the buying journey.
-- **User-friendly checkout process: ** Designing the payment process to be easily navigable and intuitive.
-- **Expanded Quick View Layouts: ** Designing the payment process to be easily navigable and intuitive.
-- **Remove Checkout Fields: ** Easily Remove Coupon form, Billing Address, Shipping Address, checkout policy, checkout terms and conditions, Order Notes Box.
+- **User-friendly checkout process:** Designing the payment process to be easily navigable and intuitive.
+- **Expanded Quick View Layouts:** Designing the payment process to be easily navigable and intuitive.
+- **Remove Checkout Fields:** Easily Remove Coupon form, Billing Address, Shipping Address, checkout policy, checkout terms and conditions, Order Notes Box.
 - **Sleek and User-Friendly:** A lightweight, user-friendly, and potent solution.
 - **Quick View Control:** Easily toggle the Quick View button on or off.
 - **Button Placement:** Access 7 Quick View button placement options.
