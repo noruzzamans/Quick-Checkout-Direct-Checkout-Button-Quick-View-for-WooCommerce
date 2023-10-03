@@ -15,21 +15,47 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 **Quick Checkout for WooCommerce** is a powerful and efficient plugin designed to streamline the checkout process for online stores built on the WooCommerce platform. It offers a range of features and optimizations that enhance the user experience and maximize conversion rates.
 
 == Benefits of quick checkout ==
-
-- fast checkout.
-- easy checkout.
-- increase sales.
-- one-click checkout.
-- streamlined checkout.
-- increased conversions.
-- checkout optimization.
-- simple checkout process.
-- Reduced cart abandonment.
-- reduced checkout friction.
-- improved customer experience.
-- streamlined checkout process.
-- checkout process optimization.
-- user-friendly checkout process.
+- **Fast checkout:** Swift and efficient payment process for a seamless shopping experience.
+- **Easy checkout:** Simplified steps and intuitive design for a hassle-free transaction.
+- **Increase sales:** Implementing strategies to boost overall purchase numbers and revenue.
+- **One-click checkout:** Minimizing steps to a single click for instant purchases.
+- **Streamlined checkout:** Eliminating unnecessary complexities for a smoother buying journey.
+- **Increased conversions:** Enhancing the ratio of visitors to actual buyers through optimization.
+- **Checkout optimization:** Fine-tuning the payment process for better efficiency and effectiveness.
+- **Simple checkout process:** Uncomplicated steps to ensure a straightforward transaction flow.
+- **Reduced cart abandonment:** Addressing issues causing customers to abandon their shopping carts prematurely.
+- **Reduced checkout friction:** Minimizing obstacles or difficulties during the checkout process.
+- **Improved customer experience:** Enhancing overall satisfaction by refining the buying journey.
+- **User-friendly checkout process: ** Designing the payment process to be easily navigable and intuitive.
+- **Expanded Quick View Layouts: ** Designing the payment process to be easily navigable and intuitive.
+- **Remove Checkout Fields: ** Easily Remove Coupon form, Billing Address, Shipping Address, checkout policy, checkout terms and conditions, Order Notes Box.
+- **Sleek and User-Friendly:** A lightweight, user-friendly, and potent solution.
+- **Quick View Control:** Easily toggle the Quick View button on or off.
+- **Button Placement:** Access 7 Quick View button placement options.
+- **Advanced Styling:** Customize Quick View button style, color, border, padding, and more.
+- **Text Customization:** Edit and translate button label text to suit your needs.
+- **Typography Options:** Apply Google fonts/typography to button text, product title, price, and more.
+- **Flexible Fields:** Show or hide product fields in the modal.
+- **Flexible Trigger:** Assign Quick View to the product name or image click.
+- **Modal Customization:** Adjust modal width, height, and content area allocation.
+- **Modal Styling:** Adjust background color and padding for the modal content.
+- **Image Gallery:** Enjoy product image gallery slider options.
+- **Preloader Control:** Enable or disable the preloader with various options.
+- **Checkout Redirect:** Choose whether to close the modal after adding to cart and redirect to checkout.
+- **Add to Cart Button:** Customize the color of the "Add to Cart" button.
+- **Star Ratings:** Modify the product star rating color within the modal.
+- **Close Button:** Choose to show or hide the close button.
+- **Preloader Options:** Enable or disable the preloader on the modal with text and color choices.
+- **Data Cleanup:** Easily remove plugin settings data upon deletion.
+- **Mobile Optimization:** Ensure the Quick View button functions smoothly on mobile devices and iPads.
+- **Custom Styling:** Utilize custom CSS and JS fields for style overrides.
+- **Multilingual Support:** Seamlessly integrate with WPML for multilingual sites.
+- **Universal Compatibility:** Works flawlessly with any theme and WooCommerce plugins.
+- **SEO-Friendly:** Optimized for search engines and designed for speed.
+- **Browser Compatibility:** Supports all modern web browsers.
+- **Dedicated Support:** Count on our dedicated support team for assistance.
+- **Regular Updates:** Enjoy regular updates and bug fixes.
+- **Developer-Friendly:** Easily customizable to suit your specific needs.
 
 == Quick Checkout Process ==
 
@@ -74,6 +100,12 @@ There is no prerequisites for installing **Quick Checkout for WooCommerce**. You
 
 = Does the plugin come for free? =
 Yes, it’s completely free.
+
+= What is quick checkout? =
+Optimize your WooCommerce experience with our Quick Checkout plugin, designed to streamline the checkout process. Say goodbye to unnecessary steps by bypassing the shopping cart page entirely. Enhance user convenience with an "Add to Cart" button on each product, seamlessly redirecting customers to the checkout page. Simplify your online shopping journey for improved efficiency and satisfaction.
+
+= How do I make WooCommerce checkout faster? =
+Accelerate WooCommerce checkout speed effortlessly for a seamless online shopping experience with our optimization solutions.
 
 = Where can I find the plugin settings? =
 To access the plugin settings, navigate to the left side of the dashboard and click on "Quick checkout."
