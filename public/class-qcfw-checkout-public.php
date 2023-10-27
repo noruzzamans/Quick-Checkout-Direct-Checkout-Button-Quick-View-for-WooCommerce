@@ -332,6 +332,12 @@ class Qcfw_Checkout_Public {
 			'nonce'    => wp_create_nonce( 'qcfw_checkout_quick_view_nonce' ),
 		));
 
+		/** Localize the main script with essential data. */
+		wp_localize_script($this->plugin_name, 'qcfw_update_checkout_cart', array(
+			'ajax_url' => admin_url('admin-ajax.php'),
+			'nonce'    => wp_create_nonce( 'qcfw_update_checkout_cart_nonce' ),
+		));
+
 		/** Retrieve settings from the plugin's options page. */
 		$settings       		= Qcfw_Checkout_Settings::get_settings();
 

@@ -129,6 +129,61 @@
 		
 			return false;
 		});
+
+
+		let is_blocked = function ($node) {
+			return $node.is('.processing') || $node.parents('.processing').length;
+		};
+
+		let block = function ($node) {
+			if (!is_blocked($node)) {
+				$node.data('processing', true);
+				$node.block({
+					message: null,
+					overlayCSS: {
+						background: '#fff',
+						opacity: 0.6
+					}
+				});
+			}
+		};
+		
+		let unblock = function ($node) {
+			$node.data('processing', false);
+			$node.unblock();
+		};
+		
+
+		$( document ).on( 'change', 'input.qty', function() {
+			let item_hash = $( this ).attr( 'name' ).replace(/cart\[([\w]+)\]\[qty\]/g, "$1");
+			let item_quantity = $( this ).val();
+			let currentVal = parseFloat(item_quantity);
+			setTimeout(function () {
+				$.ajax({
+					type: 'POST',
+					url: qcfw_update_checkout_cart.ajax_url,
+					data: {
+						action: 'qcfw_update_checkout_cart',
+						nonce: qcfw_update_checkout_cart.nonce,
+						hash: item_hash,
+						quantity: currentVal
+					},
+					beforeSend: function (response) {
+						// block($('#order_review'));
+						block($('.woocommerce-cart-form'));
+					},
+					complete: function (response) {
+						// unblock($('#order_review'));
+						unblock($('.woocommerce-cart-form'));
+					},
+					success: function(response) {
+						$('#order_review').html($(response).html()).trigger('updated_checkout');
+						$(document.body).trigger('added_to_cart');
+						location.reload();
+					}
+				});
+			}, 500);  
+		});
 		
 	});
 })(jQuery);
