@@ -1112,6 +1112,12 @@ class Qcfw_Checkout_Settings {
                     'content'   => esc_html__( 'Checkout Page', 'qcfw-checkout' ),
                 ),
                 array(
+                    'id'            => 'qcfw_checkout_cart_checkout_page',
+                    'type'          => 'switcher',
+                    'title'         =>  esc_html__( 'Show Cart in checkout page', 'qcfw-checkout' ),
+                    'default'       => false,
+                ),
+                array(
                     'id'            => 'qcfw_checkout_remove_coupon_form',
                     'type'          => 'switcher',
                     'title'         =>  esc_html__( 'Remove checkout coupon form', 'qcfw-checkout' ),

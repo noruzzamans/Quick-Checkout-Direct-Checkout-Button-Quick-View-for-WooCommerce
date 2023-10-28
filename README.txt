@@ -3,7 +3,7 @@ Contributors: noruzzaman
 Tags: checkout, quick checkout, direct checkout, quick view, Add to Cart, woocommerce
 Requires at least: 5.0
 Tested up to: 6.3
-Stable tag: 1.4.1
+Stable tag: 1.4.2
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -16,6 +16,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Benefits of quick checkout ==
 - **Fast checkout:** Swift and efficient payment process for a seamless shopping experience.
+- **One page checkout:** Streamline your shopping experience with our efficient one-page checkout for seamless and quick transactions.
 - **Easy checkout:** Simplified steps and intuitive design for a hassle-free transaction.
 - **Increase sales:** Implementing strategies to boost overall purchase numbers and revenue.
 - **One-click checkout:** Minimizing steps to a single click for instant purchases.
@@ -79,11 +80,15 @@ The plugin's user-friendly interface and intuitive configuration options make it
 
 **Quick Checkout for WooCommerce** is a feature-rich plugin that simplifies the checkout process, reduces cart abandonment, and improves conversion rates. By optimizing the user experience, supporting various payment gateways, and catering to mobile shoppers, it empowers online store owners to provide a seamless and efficient checkout process, ultimately leading to increased sales and customer satisfaction.
 
+**One page checkout** Optimize your online shopping journey with our one-page checkout – seamlessly access cart contents, payment details, and shipping options all in one place for a swift and efficient checkout experience.
+
 ### 🚀 Check out our Other Plugins 🚀
 
 Here are some of our amazing plugins that you can use to boost your WordPress website:
 
 [Autocomplete Order Status for WooCommerce](https://wordpress.org/plugins/autocomplete-wc-order-status/): Enhance customer satisfaction, save time, and boost efficiency by seamlessly completing orders with this powerful WordPress plugin.
+
+[Easy WooCommerce Quick View](https://wordpress.org/plugins/wc-easy-quick-view/): WooCommerce Quick View is a plugin that allows shoppers to view product information without having to navigate to the product page.
 
 [Copy to Clipboard for WordPress](https://wordpress.org/plugins/copy-to-clipboard-for-wp/): Copy to Clipboard for WordPress is a powerful and user-friendly plugin designed to enhance the copy-and-paste functionality on your WordPress website.
 
@@ -103,6 +108,9 @@ Yes, it’s completely free.
 
 = What is quick checkout? =
 Optimize your WooCommerce experience with our Quick Checkout plugin, designed to streamline the checkout process. Say goodbye to unnecessary steps by bypassing the shopping cart page entirely. Enhance user convenience with an "Add to Cart" button on each product, seamlessly redirecting customers to the checkout page. Simplify your online shopping journey for improved efficiency and satisfaction.
+
+= What is a one page checkout? =
+Optimize your online shopping journey with our one-page checkout – seamlessly access cart contents, payment details, and shipping options all in one place for a swift and efficient checkout experience.
 
 = How do I make WooCommerce checkout faster? =
 Accelerate WooCommerce checkout speed effortlessly for a seamless online shopping experience with our optimization solutions.
@@ -149,6 +157,9 @@ Yes, You can remove the checkout terms and conditions through the plugin setting
 == Screenshots ==
 
 == Changelog ==
+
+= 1.4.2 =
+New: One Page Checkout
 
 = 1.4.1 =
 Fix: plugin setting link
