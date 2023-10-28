@@ -131,6 +131,9 @@
 		});
 
 
+		/**
+		 * Update chackout page value by ajax
+		 */
 		let is_blocked = function ($node) {
 			return $node.is('.processing') || $node.parents('.processing').length;
 		};

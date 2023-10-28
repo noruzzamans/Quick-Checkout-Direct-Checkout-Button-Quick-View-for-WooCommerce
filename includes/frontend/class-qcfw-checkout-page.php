@@ -123,6 +123,9 @@ class Qcfw_Checkout_Page {
 		}
 	}
 
+	/**
+     * Add Cart in checkout page
+     */
 	public function qcfw_cart_on_checkout_page() {
 
 		$settings   						= Qcfw_Checkout_Settings::get_settings();
@@ -291,6 +294,9 @@ class Qcfw_Checkout_Page {
 		endif ;
 	}
 
+	/**
+     * Update chackout page value by ajax
+     */
 	public function qcfw_update_checkout_cart() {
 
 		$nonce = $_POST['nonce'];
