@@ -1,3 +1,6 @@
+= 1.4.2 =
+New: One Page Checkout 
+
 = 1.4.1 =
 Fix: plugin setting link
 Fix: some css issues

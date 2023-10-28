@@ -159,7 +159,7 @@ Yes, You can remove the checkout terms and conditions through the plugin setting
 == Changelog ==
 
 = 1.4.2 =
-New: One Page Checkout
+New: One Page Checkout 
 
 = 1.4.1 =
 Fix: plugin setting link
