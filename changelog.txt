@@ -1,3 +1,7 @@
+= 1.4.3 =
+Update: Test WooCommerce compatibility 8.2.2
+Update: Test WordPress compatibility 6.4
+
 = 1.4.2 =
 New: One Page Checkout 
 
