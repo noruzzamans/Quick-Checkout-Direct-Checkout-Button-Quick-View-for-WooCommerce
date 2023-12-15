@@ -3,7 +3,7 @@ Contributors: noruzzaman
 Tags: checkout, quick checkout, direct checkout, quick view, Add to Cart, woocommerce
 Requires at least: 5.0
 Tested up to: 6.4
-Stable tag: 1.4.3
+Stable tag: 1.4.4
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -88,7 +88,7 @@ Here are some of our amazing plugins that you can use to boost your WordPress we
 
 [Autocomplete Order Status for WooCommerce](https://wordpress.org/plugins/autocomplete-wc-order-status/): Enhance customer satisfaction, save time, and boost efficiency by seamlessly completing orders with this powerful WordPress plugin.
 
-[Easy WooCommerce Quick View](https://wordpress.org/plugins/wc-easy-quick-view/): WooCommerce Quick View is a plugin that allows shoppers to view product information without having to navigate to the product page.
+[Quick View for WooCommerce](https://wordpress.org/plugins/wc-easy-quick-view/): WooCommerce Quick View is a plugin that allows shoppers to view product information without having to navigate to the product page.
 
 [Copy to Clipboard for WordPress](https://wordpress.org/plugins/copy-to-clipboard-for-wp/): Copy to Clipboard for WordPress is a powerful and user-friendly plugin designed to enhance the copy-and-paste functionality on your WordPress website.
 
@@ -157,6 +157,9 @@ Yes, You can remove the checkout terms and conditions through the plugin setting
 == Screenshots ==
 
 == Changelog ==
+
+= 1.4.4 =
+Update: Test WooCommerce compatibility 8.4
 
 = 1.4.3 =
 Update: Test WooCommerce compatibility 8.2.2
