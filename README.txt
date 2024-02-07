@@ -3,7 +3,7 @@ Contributors: noruzzaman
 Tags: checkout, quick checkout, direct checkout, quick view, Add to Cart, woocommerce
 Requires at least: 5.0
 Tested up to: 6.4
-Stable tag: 1.4.4
+Stable tag: 1.4.5
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -57,6 +57,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 - **Dedicated Support:** Count on our dedicated support team for assistance.
 - **Regular Updates:** Enjoy regular updates and bug fixes.
 - **Developer-Friendly:** Easily customizable to suit your specific needs.
+
+
+== Support ==
+
+If you have any questions, please email us at **[noruzzaman19@gmail.com](mailto:noruzzaman19@gmail.com)**
 
 == Quick Checkout Process ==
 
@@ -157,6 +162,9 @@ Yes, You can remove the checkout terms and conditions through the plugin setting
 == Screenshots ==
 
 == Changelog ==
+
+= 1.4.5 =
+Update: Test WooCommerce compatibility 8.5.2
 
 = 1.4.4 =
 Update: Test WooCommerce compatibility 8.4
