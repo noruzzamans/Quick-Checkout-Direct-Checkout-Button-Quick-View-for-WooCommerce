@@ -16,7 +16,7 @@
  * Plugin Name:       Quick Checkout, Direct Checkout Button, Quick View for WooCommerce
  * Plugin URI:        https://wordpress.org/plugins/quick-checkout-for-woocommerce/
  * Description:       Quick Checkout for WooCommerce is a streamlined and user-friendly plugin that simplifies the checkout process for your WooCommerce online store.
- * Version:           1.4.5
+ * Version:           1.4.6
  * Author:            Noruzzaman
  * Author URI:        https://github.com/noruzzamanrubel
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'QCFW_CHECKOUT_VERSION', '1.4.5' );
+define( 'QCFW_CHECKOUT_VERSION', '1.4.6' );
 define( 'QCFW_CHECKOUT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'QCFW_CHECKOUT_URL', plugin_dir_url( __FILE__ ) );
 define( 'QCFW_CHECKOUT_SLUG', 'qcfw-checkout' );
@@ -43,29 +43,6 @@ define( 'QCFW_CHECKOUT_NAME', 'Quick Checkout, Direct Checkout Button, Quick Vie
 define( 'QCFW_CHECKOUT_FULL_NAME', 'Quick Checkout, Direct Checkout Button, Quick View for WooCommerce' );
 define( 'QCFW_CHECKOUT_BASE_NAME', plugin_basename( __FILE__ ) );
 
-
-require __DIR__ . '/vendor/autoload.php';
-
-
-/**
- * Initialize the plugin tracker
- *
- * @return void
- */
-function appsero_init_tracker_quick_checkout_for_woocommerce() {
-
-    if ( ! class_exists( 'Appsero\Client' ) ) {
-      require_once __DIR__ . '/appsero/src/Client.php';
-    }
-
-    $client = new Appsero\Client( 'f5fcbe42-f8a4-458e-94ee-54f76d1f7de9', 'Quick Checkout for WooCommerce', __FILE__ );
-
-    // Active insights
-    $client->insights()->init();
-
-}
-
-appsero_init_tracker_quick_checkout_for_woocommerce();
 
 function qcfw_woocommerce_activation_notice() {
 
