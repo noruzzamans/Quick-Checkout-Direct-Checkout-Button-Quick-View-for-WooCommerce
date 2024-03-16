@@ -1,6 +1,6 @@
 === Quick Checkout, Direct Checkout Button, Quick View for WooCommerce ===
 Contributors: noruzzaman
-Tags: checkout, quick checkout, direct checkout, quick view, Add to Cart, woocommerce
+Tags: checkout, quick checkout, direct checkout, quick view, Add to Cart
 Requires at least: 5.0
 Tested up to: 6.4
 Stable tag: 1.4.6
