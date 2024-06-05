@@ -1,3 +1,7 @@
+= 1.4.8 =
+Update: Added support for WooCommerce 8.9.2
+Update: Enhanced compatibility with WordPress 6.5.3
+
 = 1.4.7 =
 Update: Added support for WooCommerce 8.7.0.
 Update: Enhanced compatibility with WordPress 6.5.2.
