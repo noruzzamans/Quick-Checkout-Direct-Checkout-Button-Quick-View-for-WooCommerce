@@ -18,7 +18,7 @@
  * Description:       Quick Checkout for WooCommerce is a streamlined and user-friendly plugin that simplifies the checkout process for your WooCommerce online store.
  * Version:           1.4.8
  * Author:            Noruzzaman
- * Author URI:        https://github.com/noruzzamanrubel
+ * Author URI:        https://github.com/noruzzamans
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       qcfw-checkout
