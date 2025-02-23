@@ -1,9 +1,9 @@
 === Quick Checkout, Direct Checkout Button, Quick View for WooCommerce ===
-Contributors: noruzzaman
+Contributors: noruzzaman, sanaf
 Tags: checkout, quick checkout, direct checkout, quick view, Add to Cart
 Requires at least: 5.0
-Tested up to: 6.6.1
-Stable tag: 1.4.9
+Tested up to: 6.7
+Stable tag: 1.5.0
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -162,6 +162,8 @@ Yes, You can remove the checkout terms and conditions through the plugin setting
 == Screenshots ==
 
 == Changelog ==
+= 1.5.0 =
+Fix: Add to cart button error
 
 = 1.4.9 =
 Update: Added support for WooCommerce 9.1.4

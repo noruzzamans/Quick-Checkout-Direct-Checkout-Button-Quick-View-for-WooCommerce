@@ -16,7 +16,7 @@
  * Plugin Name:       Quick Checkout, Direct Checkout Button, Quick View for WooCommerce
  * Plugin URI:        https://wordpress.org/plugins/quick-checkout-for-woocommerce/
  * Description:       Quick Checkout for WooCommerce is a streamlined and user-friendly plugin that simplifies the checkout process for your WooCommerce online store.
- * Version:           1.4.9
+ * Version:           1.5.0
  * Author:            Noruzzaman
  * Author URI:        https://github.com/noruzzamans
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'QCFW_CHECKOUT_VERSION', '1.4.9' );
+define( 'QCFW_CHECKOUT_VERSION', '1.5.0' );
 define( 'QCFW_CHECKOUT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'QCFW_CHECKOUT_URL', plugin_dir_url( __FILE__ ) );
 define( 'QCFW_CHECKOUT_SLUG', 'qcfw-checkout' );

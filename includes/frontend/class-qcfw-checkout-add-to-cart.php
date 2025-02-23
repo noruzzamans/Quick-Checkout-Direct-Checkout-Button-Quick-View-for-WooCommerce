@@ -36,6 +36,12 @@ class Qcfw_Checkout_Add_To_Cart {
 	public function qcfw_checkout_shop_add_to_cart_button_text_archives(){
 
 		global $product;
+
+		// Ensure $product is defined and is an instance of WC_Product before proceeding
+		if ( ! isset( $product ) || ! is_a( $product, 'WC_Product' ) ) {
+			return __( 'Add to Cart', 'qcfw-checkout' );
+		}
+		
 		$product_type 									= $product->get_type();
 		$settings       								= Qcfw_Checkout_Settings::get_settings();
 		$qcfw_checkout_shop_simple_add_to_cart_btn 		= isset( $settings['qcfw_checkout_shop_simple_add_to_cart_btn'] ) ? $settings['qcfw_checkout_shop_simple_add_to_cart_btn'] : '';

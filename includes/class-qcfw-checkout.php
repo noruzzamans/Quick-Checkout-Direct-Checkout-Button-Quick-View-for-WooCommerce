@@ -70,7 +70,7 @@ class Qcfw_Checkout {
 		if ( defined( 'QCFW_CHECKOUT_VERSION' ) ) {
 			$this->version = QCFW_CHECKOUT_VERSION;
 		} else {
-			$this->version = '1.4.9';
+			$this->version = '1.5.0';
 		}
 		$this->plugin_name = 'qcfw-checkout';
 
